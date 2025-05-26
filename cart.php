@@ -11,23 +11,48 @@
             margin: 0;
         }
 
+        body{
+            min-width: 100vh;
+        }
         nav {
             display: flex;
             background-color: #bc884f;
-            width: 100%;
-            height: 10vh;
+            padding: 10px 20px;
             align-items: center;
+            justify-content: space-between;
         }
-        .brand {
+        .logo {
+         display: flex;
+         align-items: center;
+         gap: 10px;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .logo h3 {
             color: #402e1e;
         }
 
         main {
-            height: 80vh;
+            height: 86vh;
             background-image: linear-gradient(to right, #5e4f48 , #9f856b)
         }
-        h1 {
-            color: white;
+        .keranjang {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .keranjang h3 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            margin-bottom: 10px;
         }
 
         footer {
@@ -35,8 +60,7 @@
             justify-content: flex-end;
             align-items: center;
             background-color: #bc884f;
-            width: 100%;
-            height: 10vh;
+            padding: 13.5px 20px;
         }
         .content_footer{
             display: flex;
@@ -60,10 +84,15 @@
 </head>
 <body>
     <nav>
-        <h5 class="brand">BEANPOS</h5>
+        <div class="logo">
+            <img src="Images/Logo_kopi.jpg">
+        <h3>BEANPOS</h3>
+        </div>
     </nav>
     <main>
-        <h1 align="center">Keranjang Pesanan</h1>
+        <div class="keranjang">
+        <h3>Keranjang Pesanan</h3>
+        </div>
     </main>
     <footer>
         <div class="content_footer">
