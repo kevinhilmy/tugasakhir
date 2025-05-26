@@ -170,7 +170,7 @@
       <img src="Espresso.jpg" alt="Espresso" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -179,7 +179,7 @@
       <img src="creamy-latte.jpg" alt="Creamy Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -188,7 +188,7 @@
       <img src="Cappucino.jpg" alt="Cappucino" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -197,7 +197,7 @@
       <img src="Mocha Latte.jpg" alt="Mocha Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+       <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -206,7 +206,7 @@
       <img src="Iced americano.jpg" alt="Iced Americano" class="product">
       <div class="add-cart">
         <span>Rp.26.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -215,7 +215,7 @@
       <img src="Macchiato" alt="Macchiato Latte" class="product">
       <div class="add-cart">
         <span>Rp.24.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -224,7 +224,7 @@
       <img src="cold brew.jpg" alt="Cold Brew" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
@@ -233,7 +233,7 @@
       <img src="cafe-au-lait.jpg" alt="Cafe au Lait" class="product">
       <div class="add-cart">
         <span>Rp.27.000</span>
-        <img src="img/cart.png" alt="Add to Cart">
+        <img src="cart.jpg" alt="Add to Cart">
       </div>
     </div>
 
