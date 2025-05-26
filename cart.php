@@ -14,6 +14,7 @@
         body{
             min-width: 100vh;
         }
+        
         nav {
             display: flex;
             background-color: #bc884f;
@@ -31,6 +32,38 @@
         }
         .logo h3 {
             color: #402e1e;
+        }
+        .sidebar_icon {
+            font-size: 24px;
+            color: #402e1e;
+            cursor: pointer;
+            user-select: none;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #5e4f48;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 100%;
+            padding-top: 60px;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        #sidebar-toggle {
+            display: none;
+        }
+        #sidebar-toggle:checked ~ .sidebar {
+            left: 0;
+        }
+        .sidebar a {
+            padding: 15px 24px;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #bc884f;
         }
 
         main {
@@ -83,12 +116,24 @@
     </style>
 </head>
 <body>
+
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+
     <nav>
         <div class="logo">
             <img src="Images/Logo_kopi.jpg">
         <h3>BEANPOS</h3>
         </div>
+        <label for="sidebar-toggle" class="sidebar_icon">&#9776;</label>
     </nav>
+    <div class="sidebar">
+        <a href="home.php">Home</a>
+        <a href="menu.php">Menu</a>
+        <a href="">Pesanan</a>
+        <a href="">Stok Barang</a>
+        <a href="">Riwayat</a>
+        <a href="logout.php">Logout</a>
+    </div>
     <main>
         <div class="keranjang">
         <h3>Keranjang Pesanan</h3>
