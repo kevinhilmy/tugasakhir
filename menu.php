@@ -145,7 +145,7 @@
 
 <header>
   <div class="logo">
-    <img src="Logo_kopi.jpg" alt="BeanPOS Logo">
+    <img src="./Images/" alt="BeanPOS Logo">
     <h3>BeanPOS</h3>
   </div>
   <label for="sidebar-toggle" class="menu-icon">&#9776;</label>
@@ -166,7 +166,7 @@
 
     <div class="menu-items">
       <h4>Espresso</h4>
-      <img src="./Images/Espresso-bg.png" alt="Espresso" class="product">
+      <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
         <img src="cart.jpg" alt="Add to Cart">
