@@ -59,7 +59,7 @@
     }
 
     #sidebar-toggle:checked ~ .sidebar {
-      left: 0;
+      right: 0;
     }
 
     .sidebar a {
