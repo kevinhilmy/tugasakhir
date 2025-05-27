@@ -221,7 +221,7 @@
 
     <div class="menu-items">
       <h4>Cold Brew</h4>
-      <img src="cold brew.jpg" alt="Cold Brew" class="product">
+      <img src="./Images/cold brew.jpg" alt="Cold Brew" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
         <img src="cart.jpg" alt="Add to Cart">
