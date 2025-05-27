@@ -23,16 +23,18 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 1px;
     }
 
     .logo img {
       height: 50px;
+      width: 100%;
     }
 
     .logo h3 {
       color: #fff;
       font-family: Georgia, serif;
+      font-size: 20px;
     }
 
     .menu-icon {
