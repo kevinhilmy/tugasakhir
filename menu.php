@@ -166,7 +166,7 @@
 
     <div class="menu-items">
       <h4>Espresso</h4>
-      <img src="./Images/Espresso-bg.jpg" alt="Espresso" class="product">
+      <img src="./Images/Espresso-bg.png" alt="Espresso" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -175,7 +175,7 @@
 
     <div class="menu-items">
       <h4>Creamy Latte</h4>
-      <img src="./Images/creamy-latte-bg.jpg" alt="Creamy Latte" class="product">
+      <img src="./Images/creamy-latte-bg.png" alt="Creamy Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -184,7 +184,7 @@
 
     <div class="menu-items">
       <h4>Cappucino</h4>
-      <img src="./Images/Cappucino_bg.jpg" alt="Cappucino" class="product">
+      <img src="./Images/Cappucino_bg.png" alt="Cappucino" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -193,7 +193,7 @@
 
     <div class="menu-items">
       <h4>Mocha Latte</h4>
-      <img src="./Images/Mocha_Latte_bg.jpg" alt="Mocha Latte" class="product">
+      <img src="./Images/Mocha_Latte_bg.png" alt="Mocha Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
        <img src="cart.jpg" alt="Add to Cart">
@@ -202,7 +202,7 @@
 
     <div class="menu-items">
       <h4>Iced Americano</h4>
-      <img src="./Images/Iced_americano_bg.jpg" alt="Iced Americano" class="product">
+      <img src="./Images/Iced_americano_bg.png" alt="Iced Americano" class="product">
       <div class="add-cart">
         <span>Rp.26.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -211,7 +211,7 @@
 
     <div class="menu-items">
       <h4>Macchiato Latte</h4>
-      <img src="./Images/Macchiato_bg.jpg" alt="Macchiato Latte" class="product">
+      <img src="./Images/Macchiato_bg.png" alt="Macchiato Latte" class="product">
       <div class="add-cart">
         <span>Rp.24.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -229,7 +229,7 @@
 
     <div class="menu-items">
       <h4>Cafe au Lait</h4>
-      <img src="./Images/cafe-au-lait-bg.jpg" alt="Cafe au Lait" class="product">
+      <img src="./Images/cafe-au-lait-bg.png" alt="Cafe au Lait" class="product">
       <div class="add-cart">
         <span>Rp.27.000</span>
         <img src="cart.jpg" alt="Add to Cart">
