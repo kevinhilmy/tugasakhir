@@ -28,12 +28,12 @@
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">Menu</a>
-            <a href="#">Akun</a>
-            <a href="#">History</a>
+            <a href="menu.php">Menu</a>
+            <a href="akun.php">Akun</a>
+            <a href="hstory.php">History</a>
         </div>
 
-            <button class="openbtn" onclick="openNav()">&#9776;</button>
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
     </div>
     <div class="content">
         <h1>STOK BARANG</h1>
