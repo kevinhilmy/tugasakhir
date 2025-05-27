@@ -131,7 +131,7 @@
 
     .add-cart span {
       font-size: 14px;
-      padding: 5px 10px;
+      margin-right: 40px;
     }
 
     .add-cart img {
