@@ -212,7 +212,7 @@
 
     <div class="menu-items">
       <h4>Macchiato Latte</h4>
-      <img src="./Images/Macchiato" alt="Macchiato Latte" class="product">
+      <img src="./Images/Macchiato.jpg" alt="Macchiato Latte" class="product">
       <div class="add-cart">
         <span>Rp.24.000</span>
         <img src="cart.jpg" alt="Add to Cart">
