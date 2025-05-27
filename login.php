@@ -9,12 +9,12 @@
             margin: 0;
             height: 100vh;
             font-family: 'Georgia', serif;
-            background-image:url(BackgroundBean.jpeg) ;
+            background-image:url(./Images/BackgroundBean.jpeg) ;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             color: white;
-            
+
         }
 
         h1 {color: rgb(253, 251, 251);
