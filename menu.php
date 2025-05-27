@@ -131,6 +131,7 @@
 
     .add-cart span {
       font-size: 14px;
+      padding: 5px 10px;
     }
 
     .add-cart img {
@@ -145,7 +146,7 @@
 
 <header>
   <div class="logo">
-    <img src="./Images/" alt="BeanPOS Logo">
+    <img src="./Images/logo.png" alt="BeanPOS Logo">
     <h3>BeanPOS</h3>
   </div>
   <label for="sidebar-toggle" class="menu-icon">&#9776;</label>
