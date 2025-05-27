@@ -194,7 +194,7 @@
 
     <div class="menu-items">
       <h4>Mocha Latte</h4>
-      <img src="./Images/Mocha Latte.jpg" alt="Mocha Latte" class="product">
+      <img src="./Images/Mocha_Latte.jpg" alt="Mocha Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
        <img src="cart.jpg" alt="Add to Cart">
@@ -203,7 +203,7 @@
 
     <div class="menu-items">
       <h4>Iced Americano</h4>
-      <img src="./Images/Iced americano.jpg" alt="Iced Americano" class="product">
+      <img src="./Images/Iced_americano.jpg" alt="Iced Americano" class="product">
       <div class="add-cart">
         <span>Rp.26.000</span>
         <img src="cart.jpg" alt="Add to Cart">
