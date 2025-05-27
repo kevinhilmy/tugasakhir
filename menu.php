@@ -155,7 +155,7 @@
   <a href="">Home</a>
   <a href="menu.html">Menu</a>
   <a href="">Pesanan</a>
-  <a href="">Stok Barang</a>
+  <a href="stok.php">Stok Barang</a>
   <a href="">Riwayat</a>
   <a href="logout.html">Logout</a>
 </nav>
