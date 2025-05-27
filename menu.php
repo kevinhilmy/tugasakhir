@@ -47,11 +47,12 @@
       background-color: #6e4c2c;
       position: fixed;
       top: 0;
-      left: -250px;
+      right: -250px;
       height: 100%;
       padding-top: 60px;
       transition: 0.3s;
       z-index: 1000;
+
     }
 
     #sidebar-toggle {
@@ -59,7 +60,7 @@
     }
 
     #sidebar-toggle:checked ~ .sidebar {
-      left: 0;
+      right: 0;
     }
 
     .sidebar a {
@@ -135,8 +136,15 @@
     }
 
     .add-cart img {
-      width: 24px;
+      width: 48px;
       height: 24px;
+      background-color: #a05c26;
+      border-radius: 12px;
+    }
+    .add-cart img:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      background-color:rgb(212, 163, 114);
     }
   </style>
 </head>
@@ -170,7 +178,7 @@
       <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -179,7 +187,7 @@
       <img src="./Images/creamy-latte-bg.png" alt="Creamy Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -188,7 +196,7 @@
       <img src="./Images/Cappucino_bg.png" alt="Cappucino" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -197,7 +205,7 @@
       <img src="./Images/Mocha_Latte_bg.png" alt="Mocha Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
-       <img src="cart.jpg" alt="Add to Cart">
+       <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -206,7 +214,7 @@
       <img src="./Images/Iced_americano_bg.png" alt="Iced Americano" class="product">
       <div class="add-cart">
         <span>Rp.26.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -215,7 +223,7 @@
       <img src="./Images/Macchiato_bg.png" alt="Macchiato Latte" class="product">
       <div class="add-cart">
         <span>Rp.24.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -224,7 +232,7 @@
       <img src="./Images/cold brew.jpg" alt="Cold Brew" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
@@ -233,7 +241,7 @@
       <img src="./Images/cafe-au-lait-bg.png" alt="Cafe au Lait" class="product">
       <div class="add-cart">
         <span>Rp.27.000</span>
-        <img src="cart.jpg" alt="Add to Cart">
+        <img src="./Images/cart.png" alt="Add to Cart">
       </div>
     </div>
 
