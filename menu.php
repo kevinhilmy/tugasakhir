@@ -47,7 +47,7 @@
       background-color: #6e4c2c;
       position: fixed;
       top: 0;
-      left: -250px;
+      right: -250px;
       height: 100%;
       padding-top: 60px;
       transition: 0.3s;
