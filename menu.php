@@ -167,7 +167,7 @@
 
     <div class="menu-items">
       <h4>Espresso</h4>
-      <img src="Espresso.jpg" alt="Espresso" class="product">
+      <img src="./Images/Espresso.jpg" alt="Espresso" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -176,7 +176,7 @@
 
     <div class="menu-items">
       <h4>Creamy Latte</h4>
-      <img src="creamy-latte.jpg" alt="Creamy Latte" class="product">
+      <img src="./Images/creamy-latte.jpg" alt="Creamy Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -185,7 +185,7 @@
 
     <div class="menu-items">
       <h4>Cappucino</h4>
-      <img src="Cappucino.jpg" alt="Cappucino" class="product">
+      <img src="./Images/Cappucino.jpg" alt="Cappucino" class="product">
       <div class="add-cart">
         <span>Rp.25.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -194,7 +194,7 @@
 
     <div class="menu-items">
       <h4>Mocha Latte</h4>
-      <img src="Mocha Latte.jpg" alt="Mocha Latte" class="product">
+      <img src="./Images/Mocha Latte.jpg" alt="Mocha Latte" class="product">
       <div class="add-cart">
         <span>Rp.17.000</span>
        <img src="cart.jpg" alt="Add to Cart">
@@ -203,7 +203,7 @@
 
     <div class="menu-items">
       <h4>Iced Americano</h4>
-      <img src="Iced americano.jpg" alt="Iced Americano" class="product">
+      <img src="./Images/Iced americano.jpg" alt="Iced Americano" class="product">
       <div class="add-cart">
         <span>Rp.26.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -212,7 +212,7 @@
 
     <div class="menu-items">
       <h4>Macchiato Latte</h4>
-      <img src="Macchiato" alt="Macchiato Latte" class="product">
+      <img src="./Images/Macchiato" alt="Macchiato Latte" class="product">
       <div class="add-cart">
         <span>Rp.24.000</span>
         <img src="cart.jpg" alt="Add to Cart">
@@ -230,7 +230,7 @@
 
     <div class="menu-items">
       <h4>Cafe au Lait</h4>
-      <img src="cafe-au-lait.jpg" alt="Cafe au Lait" class="product">
+      <img src="./Images/cafe-au-lait.jpg" alt="Cafe au Lait" class="product">
       <div class="add-cart">
         <span>Rp.27.000</span>
         <img src="cart.jpg" alt="Add to Cart">
