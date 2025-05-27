@@ -21,8 +21,8 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <a href="">
-                <img src="" alt="logo">
+            <a href="menu.php">
+                <img src="./Images/logo.png" alt="logo">
                 <p>BEANPOS</p>
             </a>
         </div>
