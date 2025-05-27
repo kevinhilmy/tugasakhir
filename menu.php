@@ -152,7 +152,6 @@
 </header>
 
 <nav class="sidebar">
-  <a href="">Home</a>
   <a href="menu.html">Menu</a>
   <a href="">Pesanan</a>
   <a href="stok.php">Stok Barang</a>
