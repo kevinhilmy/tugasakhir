@@ -47,7 +47,7 @@
       background-color: #6e4c2c;
       position: fixed;
       top: 0;
-      right: -250px;
+      left: -250px;
       height: 100%;
       padding-top: 60px;
       transition: 0.3s;
@@ -59,7 +59,7 @@
     }
 
     #sidebar-toggle:checked ~ .sidebar {
-      right: 0;
+      left: 0;
     }
 
     .sidebar a {
