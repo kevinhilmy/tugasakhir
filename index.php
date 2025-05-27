@@ -1,9 +1,13 @@
+<?php
+session_start();
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi</title>
+    <title>Login</title>
     <style>
         body {
             margin: 0;
@@ -14,11 +18,12 @@
             background-position: center;
             background-repeat: no-repeat;
             color: white;
+
         }
 
         h1 {color: rgb(253, 251, 251);
-            padding-left: 20%;
-            padding-top: 40px;
+            padding-left: 25%;
+            padding-top: 50px;
             font-size: 35px;
             font-weight: bold;
         }
@@ -33,19 +38,13 @@
         }
 
         form input[type="text"],
-        form input[type="password"], 
-        form input[type="email"],
-        form select {
+        form input[type="password"] {
             width: 350px;
             padding: 12px;
             border: none;
             border-radius: 25px;
             font-size: 16px;
             outline: none;
-        }
-
-        form select {
-            width: 374px;
         }
 
         form input[type="submit"] {
@@ -76,36 +75,26 @@
         text-decoration: underline;
         }
 
-        .registrasi-container {
+        .login-container {
             padding-left: 15%;
-            padding-top: 10px;
+            padding-top: 25px;
         }
     </style>
 </head>
 
 <body>
-    <h1>REGISTRASI</h1>
-    <div class="registrasi-container">
-        <form action="cek_registrasi.php" method="POST">
-            <label>Username</label><br>
-            <input type="text" name="username" required> <br>
+    <h1>LOGIN</h1>
+    <div class="login-container">
+        <form action="cek_login.php" method="POST">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br>
 
-            <label>Password</label><br>
-            <input type="password" name="password" required> <br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br>
 
-            <label>Email</label><br>
-            <input type="email" name="email" required> <br>
-
-            <label>Role</label><br>
-            <select name="role" required>
-                <option value="">Pilih Role</option>
-                <option value="admin">Admin</option>
-                <option value="kasir">Kasir</option>
-            </select><br>
-
-            <input type="submit" value="Sign Up">
+            <input type="submit" value="Login">
         </form>
-        <p class = "login">Sudah punya akun? <a href="index.php">Login</a></p>
+        <p class = "signUp">Belum punya akun? <a href="registrasi.php">Sign Up</a></p>
     </div>
 </body>
 </html>
