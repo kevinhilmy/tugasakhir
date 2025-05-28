@@ -26,7 +26,7 @@
     <div class="content">
         <div class="box">
             <div class="label">
-                <img src="logo.png" alt="">
+                <img src="./Images/logo.png" alt="status">
                 <p>Transaksi berhasil</p>
                 <p>Terimakasih sudah belanja</p>
             </div>
