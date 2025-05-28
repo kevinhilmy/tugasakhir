@@ -14,8 +14,14 @@ body{
   background-color: #bb874f;
 }
 
-.logo a{
+.logo{
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo a{
   text-decoration: none;
   color: #111;
 }

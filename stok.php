@@ -23,8 +23,8 @@
         <div class="logo">
             <a href="menu.php">
                 <img src="./Images/logo.png" alt="logo">
-                <p>BEANPOS</p>
             </a>
+            <a href="menu.php">BEANPOS</a>
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
