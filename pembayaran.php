@@ -9,20 +9,19 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <a href="">
-                <img src="" alt="logo">
+            <a href="menu.php">
+                <img src="./Images/logo.png" alt="logo">
                 <p>BEANPOS</p>
             </a>
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="menu.php">Menu</a>
+            <a href="history.php">History</a>
+            <a href="cart.php">Cart</a>
         </div>
 
-            <button class="openbtn" onclick="openNav()">&#9776;</button>
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
     </div>
     <div class="content">
         <div class="box">
