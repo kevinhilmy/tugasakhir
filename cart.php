@@ -1,6 +1,15 @@
 <?php
     session_start();
     include 'koneksi.php';
+
+    if($SERVER['REQUEST_METHOD'] == 'POST') {
+        $nama= $_POST['nama_produk'];
+        $harga = $_POST['harga_produk'];
+    }
+    $SESSION['keranjang'][] = [
+        'nama_produk' => $nama,
+        'harga_produk' => $harga
+    ]
 ?>
 
 <!DOCTYPE html>
