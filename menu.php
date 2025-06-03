@@ -1,6 +1,24 @@
 <?php
-  session_start();
-  include 'koneksi.php';
+session_start();
+include 'koneksi.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nama = $_POST['nama'];
+    $harga = $_POST['harga'];
+
+    if (!isset($_SESSION['keranjang'])) {
+        $_SESSION['keranjang'] = [];
+    }
+
+    $_SESSION['keranjang'][] = [
+        'nama_produk' => $nama,
+        'harga_produk' => $harga
+    ];
+
+    // Redirect untuk mencegah form resubmission
+    header("Location: menu.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

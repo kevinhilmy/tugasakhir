@@ -1,16 +1,50 @@
 <?php
-    session_start();
-    include 'koneksi.php';
+session_start();
+include 'koneksi.php';
 
-    if($SERVER['REQUEST_METHOD'] == 'POST') {
-        $nama= $_POST['nama_produk'];
-        $harga = $_POST['harga_produk'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Hapus item dari keranjang jika ada request hapus
+    if (isset($_POST['hapus_index'])) {
+        $hapusIndex = (int)$_POST['hapus_index'];
+        if (isset($_SESSION['keranjang'][$hapusIndex])) {
+            unset($_SESSION['keranjang'][$hapusIndex]);
+            // Reindex array supaya urutan index tetap rapi
+            $_SESSION['keranjang'] = array_values($_SESSION['keranjang']);
+        }
     }
-    $SESSION['keranjang'][] = [
-        'nama_produk' => $nama,
-        'harga_produk' => $harga
-    ]
+    else {
+        $nama = $_POST['nama_produk'] ?? '';
+        $harga = (int)($_POST['harga_produk'] ?? 0);
+
+    if ($nama !== '' && $harga > 0) {
+        if (!isset($_SESSION['keranjang'])) {
+            $_SESSION['keranjang'] = [];
+        }
+
+        // Cek apakah produk sudah ada di keranjang
+        $found = false;
+        foreach ($_SESSION['keranjang'] as &$item) {
+            if ($item['nama_produk'] === $nama) {
+                $item['jumlah'] += 1;
+                $found = true;
+                break;
+            }
+        }
+        unset($item);
+
+        if (!$found) {
+            $_SESSION['keranjang'][] = [
+                'nama_produk' => $nama,
+                'harga_produk' => $harga,
+                'jumlah' => 1
+            ];
+        }
+    }
+}
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -149,15 +183,61 @@
         <a href="logout.php">Logout</a>
     </div>
     <main>
-        <div class="keranjang">
-        <h3>Keranjang Pesanan</h3>
+       <div class="cart-container">
+    <h2>Isi Keranjang</h2>
+
+    <?php if (!empty($_SESSION['keranjang'])): ?>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Nama Produk</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                $total = 0;
+                foreach ($_SESSION['keranjang'] as $item):
+                    $harga = isset($item['harga_produk']) ? (float)$item['harga_produk'] : 0;
+                    $jumlah = isset($item['jumlah']) ? (int)$item['jumlah'] : 1; // default 1 jika gak ada
+
+                    $subtotal = $harga * $jumlah;
+
+                ?>
+                    <tr>
+                        <td><?= htmlspecialchars($item['nama_produk']) ?></td>
+                        <td>Rp. <?= number_format($item['harga_produk'], 0, ',', '.') ?></td>
+                        <td><?= (int)($item['jumlah'] ?? 1) ?></td>
+
+                        <td>Rp. <?= number_format($subtotal, 0, ',', '.') ?></td>
+                        <td>
+                            <form method="post" style="margin:0;">
+                    <input type="hidden" name="hapus_index" value="<?= $index ?>">
+                    <button type="submit" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</button>
+                </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3"><strong>Total</strong></td>
+                    <td><strong>Rp. <?= number_format($total, 0, ',', '.') ?></strong></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="checkout-btn">
+            <a href="checkout.php" class="btn-bayar">Bayar Sekarang</a>
         </div>
+
+    <?php else: ?>
+        <p class="empty-cart">Keranjang kosong.</p>
+    <?php endif; ?>
+</div>
     </main>
-    <footer>
-        <div class="content_footer">
-        <p>Total :</p>
-        <p><a href="login.php">Selesaikan Pembayaran</a></p>
-        </div>
-    </footer>
+
 </body>
 </html>
