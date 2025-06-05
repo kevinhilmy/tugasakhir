@@ -1,8 +1,9 @@
 <?php
-    session_start();
-    include 'koneksi.php';
-
-    function getAllAkun(){
+session_start();
+include 'koneksi.php';
+// ambil seluruh data dari tabel tb_akun 
+function getAllAkun()
+{
     global $db;
     $query = "SELECT * FROM tb_akun";
     $result = mysqli_query($db, $query);
@@ -11,7 +12,7 @@
         $data[] = $row;
     }
     return $data;
-    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +57,6 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-        .logo{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         }
 
         .logo a {
@@ -204,12 +200,6 @@
     </div>
     <div class="content">
         <h1>akun</h1>
-        <?php
-        $akun = getAllAkun();
-        foreach($akun as $a){
-            
-        }
-        ?>
         <table style="width: 100%;">
             <tr>
                 <th>no</th>
@@ -234,7 +224,7 @@
                                 <td>" . htmlspecialchars($a['password']) . "</td>
                                 <td>" . htmlspecialchars($a['email']) . "</td>
                                 <td>" . htmlspecialchars($a['role']) . "</td>
-                                <td class='aksi'><a href='kelola.php?id=" . $a['id'] . "'>edit</a></td>
+                                <td class='aksi'><a href='kelola.php?ubah=1" . $a['id'] . "'>edit</a></td>
                               </tr>";
                 }
             } else {
@@ -249,7 +239,7 @@
                 <td>kevinaja</td>
                 <td>kevinhilmy.r@gmial.com</td>
                 <td>kasir</td>
-                <td class="aksi"><a href="kelola.php?ubah=1"><input type="button" value="edit"></a></td>
+                <td class="aksi"><a href="kelola.php">edit</a></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -261,8 +251,6 @@
                 <td>admin</td>
                 <td class="aksi"><input type="button" value="edit"><input type="button" value="hapus"></td>
             </tr> -->
-                <td class="aksi"><a href="kelola.php?ubah=2"><input type="button" value="edit"></a></td>
-            </tr>
         </table>
         <div class="edit">
             <a href="kelola.php">
