@@ -6,10 +6,9 @@ include 'koneksi.php';
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 $email    = trim($_POST['email']);
-$role     = trim($_POST['role']);
 
 // Validasi: Pastikan semua data diisi
-if (empty($username) || empty($password) || empty($email) || empty($role)) {
+if (empty($username) || empty($password) || empty($email)) {
     echo "<script>alert('Semua kolom harus diisi!'); window.location.href='register.php';</script>";
     exit;
 }
@@ -32,7 +31,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 // Simpan data ke database
 $query_insert = "INSERT INTO tb_akun (username, password, email, role) VALUES (?, ?, ?, ?)";
 $stmt_insert = mysqli_prepare($db, $query_insert);
-mysqli_stmt_bind_param($stmt_insert, "ssss", $username, $hashed_password, $email, $role);
+mysqli_stmt_bind_param($stmt_insert, "ssss", $username, $hashed_password, $email);
 
 if (mysqli_stmt_execute($stmt_insert)) {
     echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location.href='index.php';</script>";
