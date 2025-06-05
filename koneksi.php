@@ -16,3 +16,5 @@ function getAllAkun()
     }
     return $data;
 }
+
+?>
