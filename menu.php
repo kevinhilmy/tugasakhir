@@ -6,19 +6,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
     $harga = $_POST['harga'];
 
+$query = mysqli-query($koneksi,"SELECT * FROM tb_produk WHERE nama = '$nama_produk'");
+$tb_produk = mysqli_fetch_assoc($query);
+
+  if($tb_produk) {
     if (!isset($_SESSION['keranjang'])) {
         $_SESSION['keranjang'] = [];
     }
 
     $_SESSION['keranjang'][] = [
-        'nama_produk' => $nama,
-        'harga_produk' => $harga
+        'nama' => $nama_produk,
+        'harga' => $harga_produk
     ];
 
     // Redirect untuk mencegah form resubmission
     header("Location: menu.php");
     exit;
 }
+}
+
+$result = mysqli_query($koneksi, "SELECT * FROM tb_produk");
 ?>
 
 <!DOCTYPE html>
