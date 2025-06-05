@@ -20,6 +20,8 @@ if ($result->num_rows > 0) {
     header("location:menu.php");
 } else {
     // Login gagal
-    echo "Username atau Password salah!";
+    echo "<script>
+            alert('Username atau Password salah!');
+            window.location.href='index.php';
+          </script>";
 }
-?>
