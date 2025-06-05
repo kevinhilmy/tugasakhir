@@ -197,7 +197,7 @@ $result = mysqli_query($koneksi, "SELECT * FROM tb_produk");
   <a href="cart.php">Pesanan</a>
   <a href="stok.php">Stok Barang</a>
   <a href="">Riwayat</a>
-  <a href="logout.html">Logout</a>
+  <a href="logout.php">Logout</a>
 </nav>
 
 <main>
