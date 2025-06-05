@@ -1,6 +1,18 @@
 <?php
 session_start();
 include 'koneksi.php';
+// ambil seluruh data dari tabel tb_akun 
+function getAllAkun()
+{
+    global $db;
+    $query = "SELECT * FROM tb_akun";
+    $result = mysqli_query($db, $query);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = $row;
+    }
+    return $data;
+}
 ?>
 
 <!DOCTYPE html>
@@ -212,7 +224,7 @@ include 'koneksi.php';
                                 <td>" . htmlspecialchars($a['password']) . "</td>
                                 <td>" . htmlspecialchars($a['email']) . "</td>
                                 <td>" . htmlspecialchars($a['role']) . "</td>
-                                <td class='aksi'><a href='kelola.php?id=" . $a['id'] . "'>edit</a></td>
+                                <td class='aksi'><a href='kelola.php?ubah=1" . $a['id'] . "'>edit</a></td>
                               </tr>";
                 }
             } else {
@@ -241,7 +253,9 @@ include 'koneksi.php';
             </tr> -->
         </table>
         <div class="edit">
-            <input type="button" value="tambah akun">
+            <a href="kelola.php">
+                <input type="button" value="tambah akun">
+            </a>
         </div>
     </div>
 </body>
