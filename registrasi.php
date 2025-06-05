@@ -101,13 +101,6 @@
             <label>Email</label><br>
             <input type="email" name="email" required> <br>
 
-            <label>Role</label><br>
-            <select name="role" required>
-                <option value="">Pilih Role</option>
-                <option value="admin">Admin</option>
-                <option value="kasir">Kasir</option>
-            </select><br>
-
             <input type="submit" value="Sign Up">
         </form>
         <p class = "login">Sudah punya akun? <a href="index.php">Login</a></p>
