@@ -3,12 +3,11 @@ session_start();
 include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Hapus item dari keranjang jika ada request hapus
     if (isset($_POST['hapus_index'])) {
         $hapusIndex = (int)$_POST['hapus_index'];
         if (isset($_SESSION['keranjang'][$hapusIndex])) {
             unset($_SESSION['keranjang'][$hapusIndex]);
-            // Reindex array supaya urutan index tetap rapi
+        
             $_SESSION['keranjang'] = array_values($_SESSION['keranjang']);
         }
     }
