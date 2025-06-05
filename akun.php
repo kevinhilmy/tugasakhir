@@ -1,6 +1,6 @@
 <?php
-session_start();
-include 'koneksi.php';
+    session_start();
+    include 'koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ include 'koneksi.php';
 
         .logo{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         }
@@ -195,7 +195,7 @@ include 'koneksi.php';
                 <td>kevinaja</td>
                 <td>kevinhilmy.r@gmial.com</td>
                 <td>kasir</td>
-                <td class="aksi"><a href="kelola.php">edit</a></td>
+                <td class="aksi"><a href="kelola.php?ubah=1"><input type="button" value="edit"></a></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -205,11 +205,13 @@ include 'koneksi.php';
                 <td>abahaja</td>
                 <td>abahabah@gmail.com</td>
                 <td>admin</td>
-                <td class="aksi"><input type="button" value="edit"><input type="button" value="hapus"></td>
+                <td class="aksi"><a href="kelola.php?ubah=2"><input type="button" value="edit"></a></td>
             </tr>
         </table>
         <div class="edit">
-            <input type="button" value="tambah akun">
+            <a href="kelola.php">
+                <input type="button" value="tambah akun">
+            </a>
         </div>
     </div>
 </body>
