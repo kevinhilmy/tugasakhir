@@ -6,7 +6,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
     $harga = $_POST['harga'];
 
-$query = mysqli-query($koneksi,"SELECT * FROM tb_produk WHERE nama = '$nama_produk'");
+$query = mysqli-query($koneksi,"SELECT * FROM tb_produk WHERE nama = '$nama' AND harga = '$harga'");
+  if (!$query) {
+    die("Query failed: " . mysqli_error($koneksi));
+  }
+
+  $nama_produk = mysqli_real_escape_string($koneksi, $nama);
+  $harga_produk = (int)$harga;
+
+  // Cek apakah produk ada di database
 $tb_produk = mysqli_fetch_assoc($query);
 
   if($tb_produk) {
@@ -15,8 +23,8 @@ $tb_produk = mysqli_fetch_assoc($query);
     }
 
     $_SESSION['keranjang'][] = [
-        'nama' => $nama_produk,
-        'harga' => $harga_produk
+        'nama' => $nama,
+        'harga' => $harga
     ];
 
     // Redirect untuk mencegah form resubmission
@@ -203,6 +211,8 @@ $result = mysqli_query($koneksi, "SELECT * FROM tb_produk");
 <main>
   <div class="menu-container">
     <h3>MENU</h3>
+
+    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
 
 <form action="" method="post">
     <div class="menu-items">
