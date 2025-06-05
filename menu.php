@@ -2,6 +2,10 @@
 session_start();
 include 'koneksi.php';
 
+global $db;
+$query = "SELECT * FROM tb_produk";
+$result = $db->sql($sql);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nama = $_POST['nama'];
     $harga = $_POST['harga'];
