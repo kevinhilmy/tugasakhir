@@ -1,6 +1,8 @@
 <?php
     session_start();
     include 'koneksi.php';
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -176,6 +178,10 @@
     </div>
     <div class="content">
         <h1>akun</h1>
+        <?php
+        $akun = getAllAkun
+        foreach($akun as $a){}
+        ?>
         <table style="width: 100%;">
             <tr>
                 <th>no</th>

@@ -4,13 +4,15 @@ if (!$db) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// ambil seluruh data dari tabel admin 
-function pilih($tabel, $kondisi = null)
+// ambil seluruh data dari tabel tb_akun 
+function getAllAkun()
 {
     global $db;
-    $query = "SELECT * FROM $tabel";
-    if ($kondisi) {
-        $query .= " WHERE $kondisi";
+    $query = "SELECT * FROM tb_akun";
+    $result = mysqli_query($db, $query);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = $row;
     }
-    return mysqli_query($db, $query);
+    return $data;
 }
