@@ -2,7 +2,16 @@
     session_start();
     include 'koneksi.php';
 
-    
+    function getAllAkun(){
+    global $db;
+    $query = "SELECT * FROM tb_akun";
+    $result = mysqli_query($db, $query);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = $row;
+    }
+    return $data;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -179,8 +188,10 @@
     <div class="content">
         <h1>akun</h1>
         <?php
-        $akun = getAllAkun
-        foreach($akun as $a){}
+        $akun = getAllAkun();
+        foreach($akun as $a){
+            
+        }
         ?>
         <table style="width: 100%;">
             <tr>
