@@ -88,10 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         .sidebar {
             width: 250px;
-            background-color: #5e4f48;
+            background-color: #6e4c2c;
             position: fixed;
             top: 0;
-            left: -250px;
+            right: -250px;
             height: 100%;
             padding-top: 60px;
             transition: 0.3s;
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             display: none;
         }
         #sidebar-toggle:checked ~ .sidebar {
-            left: 0;
+            right: 0;
         }
         .sidebar a {
             padding: 15px 24px;
@@ -110,7 +110,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             display: block;
         }
         .sidebar a:hover {
-            background-color: #bc884f;
+            background-color: #8b6845;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 28px;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
         }
 
         main {
@@ -174,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <label for="sidebar-toggle" class="sidebar_icon">&#9776;</label>
     </nav>
     <div class="sidebar">
-        <a href="home.php">Home</a>
+        <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
         <a href="menu.php">Menu</a>
         <a href="">Pesanan</a>
         <a href="">Stok Barang</a>
