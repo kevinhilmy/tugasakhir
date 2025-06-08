@@ -3,10 +3,10 @@
   include 'koneksi.php';
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nama = $_POST['nama'];
-    $harga = $_POST['harga'];
+    $nama = mysqli_real_escape_string($db, $_POST['nama']);
+    $harga = (int)$_POST['harga'];
 
-    $query = mysqli_query($db,"SELECT * FROM tb_produk WHERE nama = '$nama' AND harga = '$harga'");
+    $query = mysqli_query($db, "SELECT * FROM tb_produk WHERE nama_produk = '$nama' AND harga_produk = $harga");
       if (!$query) {
         die("Query failed: " . mysqli_error($db));
       }
