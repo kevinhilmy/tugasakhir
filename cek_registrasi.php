@@ -28,10 +28,13 @@ if (mysqli_num_rows($result) > 0) {
 // Enkripsi password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+// Set role default jadi kasir
+$role = "kasir";
+
 // Simpan data ke database
 $query_insert = "INSERT INTO tb_akun (username, password, email, role) VALUES (?, ?, ?, ?)";
 $stmt_insert = mysqli_prepare($db, $query_insert);
-mysqli_stmt_bind_param($stmt_insert, "ssss", $username, $hashed_password, $email);
+mysqli_stmt_bind_param($stmt_insert, "ssss", $username, $hashed_password, $email, $role);
 
 if (mysqli_stmt_execute($stmt_insert)) {
     echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location.href='index.php';</script>";
