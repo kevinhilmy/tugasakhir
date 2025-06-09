@@ -1,15 +1,15 @@
 <?
     include 'koneksi.php';
 
-    if(isset($_GET['ubah'])){
+    if (isset($_GET['ubah'])) {
         $id = $_GET['ubah'];
 
-        $query = "SELECT * FROM tb_akun WHERE id = '$id';";
-        $sql = mysqli_query($db, $query);
+        $query = "SELECT * FROM akun WHERE id = '$id'";
+        $result = mysqli_query($db, $query);
 
-        $result = mysqli_fetch_assoc($sql);
-
-        
+        if ($result && mysqli_num_rows($result) > 0) {
+            $data = mysqli_fetch_assoc($result);
+        }
     }
 ?>
 
@@ -161,7 +161,6 @@
         <div class="judul">
             <?php
                 if(isset($_GET['ubah'])){
-                    
             ?>
             <h1>edit data : </h1>
             <p>edit yang diinginkan</p>
@@ -175,7 +174,9 @@
             ?>
         </div>
         <form method="POST" action="proses.php">
-            <input type="text" value="<?php echo $id; ?>">
+            <?php if(isset($_GET['ubah'])): ?>
+                <input type="text" name="id" value="<?= $data['id'] ?>">
+            <?php endif; ?>
             <div class="fc">
                 <table>
                     <tr>
@@ -225,7 +226,17 @@
                 </table>
             </div>
             <div class="aksi">
-                <button type="submit" name="change" value="add">Tambahkan Perubahan</button>
+                <?php 
+                    if(isset($_GET['ubah'])){
+                ?>
+                <button type="submit" name="aksi" value="edit">Edit Perubahan</button>
+                <?php 
+                } else {
+                ?>
+                <button type="submit" name="aksi" value="add">Tambahkan Perubahan</button>
+                <?php 
+                }
+                ?>
                 <a href="akun.php">
                     <input type="button" value="batal">
                 </a>
