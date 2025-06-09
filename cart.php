@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         .sidebar_icon {
             font-size: 24px;
-            color:rgb(0, 0, 0);
+            color:#000;
             cursor: pointer;
             user-select: none;
         }
