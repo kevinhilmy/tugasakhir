@@ -233,7 +233,7 @@
         <input type="hidden" name="nama" value="Espresso">
         <input type="hidden" name="harga" value="25000">
         <div class="add-cart">
-          <span>Rp.25.000</span>
+          <span><?php echo $row['harga_produk']; ?></span>
           <button type="submit" style="background: none; border: none; padding: 0;">
             <img src="./Images/cart.png" alt="Add to Cart">
           </button>

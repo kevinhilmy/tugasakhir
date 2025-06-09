@@ -1,6 +1,8 @@
 <?php
-    session_start();
-    include 'koneksi.php';
+    include("koneksi.php");
+
+    $query = "SELECT * FROM tb_pemesanan";
+    $sql = mysqli_query($db, $query);
 ?>
 
 <!DOCTYPE html>
@@ -113,12 +115,6 @@
             width: 70px;
         }
 
-        .detail{
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
         .tombol{
             margin-top: 10px;
             display: flex;
@@ -154,37 +150,51 @@
 
         <button class="openbtn" onclick="openNav()">&#9776;</button>
     </div>
-    <div class="content">
-        <div class="box">
-            <div class="label">
-                <img src="./Images/logo.png" alt="status">
-                <p>Transaksi berhasil</p>
-                <p>Terimakasih sudah belanja</p>
-            </div>
-            <div class="detail">
-                <div class="informasi">
-                    <p>id akun :</p>
-                    <p>id pesanan :</p>
-                    <p>tanggal :</p>
-                    <p>total produk :</p>
-                    <p>total harga :</p>
-                    <p>bayar :</p>
-                    <p>kembali :</p>
+    <?php while ($row = mysqli_fetch_assoc($sql)) { ?>
+        <div class="content">
+            <div class="box">
+                <div class="label">
+                    <img src="./Images/logo.png" alt="status">
+                    <p>Transaksi berhasil</p>
+                    <p>Terimakasih sudah belanja</p>
                 </div>
-                <div class="total">
-                    <p>kasir</p>
-                    <p>12</p>
-                    <p>29-09-2008</p>
-                    <p>3</p>
-                    <p>53.000</p>
-                    <p>55.000</p>
-                    <p>2000</p>
+                <div class="detail">
+                    <table>
+                        <tr>
+                            <td>ID Akun :</td>
+                            <td><?php echo $row["id_akun"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>ID Pesanan :</td>
+                            <td><?php echo $row["id_pesanan"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal :</td>
+                            <td><?php echo $row["tanggal"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total produk :</td>
+                            <td><?php echo $row["total_produk"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total harga :</td>
+                            <td><?php echo $row["total_harga"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Bayar :</td>
+                            <td><?php echo $row["bayar"]; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Kembali :</td>
+                            <td><?php echo $row["kembali"]; ?></td>
+                        </tr>
+                    </table>
                 </div>
-            </div>
-            <div class="tombol">
-                <input type="button" value="belanja kembali">
+                <div class="tombol">
+                    <input type="button" value="belanja kembali">
+                </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
 </body>
 </html>
