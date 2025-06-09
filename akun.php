@@ -158,9 +158,10 @@ function getAllAkun()
             background-color: #edd7bf;
         }
 
-        .aksi {
+        .aksi{
             display: flex;
             justify-content: center;
+            gap: 10px;
         }
 
         .aksi a {
@@ -217,15 +218,15 @@ function getAllAkun()
             if (count($akun) > 0) {
                 foreach ($akun as $index => $a) {
                     echo "<tr>
-                                <td>" . ($index + 1) . "</td>
+                                <td>" . ($index + 1) . "." . "</td>
                                 <td>" . htmlspecialchars($a['nama']) . "</td>
                                 <td>" . htmlspecialchars($a['id']) . "</td>
                                 <td>" . htmlspecialchars($a['username']) . "</td>
                                 <td>" . htmlspecialchars($a['password']) . "</td>
                                 <td>" . htmlspecialchars($a['email']) . "</td>
                                 <td>" . htmlspecialchars($a['role']) . "</td>
-                                <td class='aksi'><a href='kelola.php?ubah=1" . $a['id'] . "'>edit</a></td>
-                              </tr>";
+                                <td class='aksi'><a href='kelola.php?ubah=" . $a['id'] . "'>edit</a><a href='proses.php?hapus=" . $a['id'] . "'>hapus</a></td>
+                        </tr>";
                 }
             } else {
                 echo "<tr><td colspan='8'>Tidak ada data akun.</td></tr>";

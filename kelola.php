@@ -1,5 +1,16 @@
 <?
     include 'koneksi.php';
+
+    if(isset($_GET['ubah'])){
+        $id = $_GET['ubah'];
+
+        $query = "SELECT * FROM tb_akun WHERE id = '$id';";
+        $sql = mysqli_query($db, $query);
+
+        $result = mysqli_fetch_assoc($sql);
+
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -150,8 +161,9 @@
         <div class="judul">
             <?php
                 if(isset($_GET['ubah'])){
+                    
             ?>
-            <h1>edit data</h1>
+            <h1>edit data : </h1>
             <p>edit yang diinginkan</p>
             <?php
                 } else {
@@ -162,7 +174,8 @@
                 }
             ?>
         </div>
-        <form method="POST" action="">
+        <form method="POST" action="proses.php">
+            <input type="text" value="<?php echo $id; ?>">
             <div class="fc">
                 <table>
                     <tr>
@@ -170,7 +183,7 @@
                             <label for="usn">Username :</label>
                         </td>
                         <td>
-                            <input type="text" id="usn" placeholder="minimal 2 huruf">
+                            <input required type="text" id="usn" name="usn" placeholder="minimal 2 huruf">
                         </td>
                     </tr>
                     <tr>
@@ -178,7 +191,7 @@
                             <label for="nama">Nama :</label>
                         </td>
                         <td>
-                            <input type="text" id="nama" placeholder="minimal">
+                            <input required type="text" id="nama" name="nama" placeholder="minimal">
                         </td>
                     </tr>
                     <tr>
@@ -186,7 +199,7 @@
                             <label for="pw">Password :</label>
                         </td>
                         <td>
-                            <input type="password" name="pw" id="pw">
+                            <input required type="password" name="pw" id="pw">
                         </td>
                     </tr>
                     <tr>
@@ -194,7 +207,7 @@
                             <label for="email">Email :</label>
                         </td>
                         <td>
-                            <input type="email" name="email" id="email">
+                            <input required type="email" name="email" id="email">
                         </td>
                     </tr>
                     <tr>
@@ -202,7 +215,7 @@
                             <label for="role">Pilih Role</label>
                         </td>
                         <td>
-                            <select name="role" id="role">
+                            <select required name="role" id="role">
                                 <option selected>Pilih role</option>
                                 <option value="admin">admin</option>
                                 <option value="kasir">kasir</option>
@@ -213,7 +226,6 @@
             </div>
             <div class="aksi">
                 <button type="submit" name="change" value="add">Tambahkan Perubahan</button>
-                <button type="submit" name="hapus" value="hapus">Hapus Data</button>
                 <a href="akun.php">
                     <input type="button" value="batal">
                 </a>
