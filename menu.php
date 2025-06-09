@@ -215,7 +215,7 @@
   <a href="menu.php">Menu</a>
   <a href="cart.php">Pesanan</a>
   <a href="stok.php">Stok Barang</a>
-  <a href="">Riwayat</a>
+  <a href="history.php">Riwayat</a>
   <a href="logout.php">Logout</a>
 </nav>
 
@@ -227,7 +227,7 @@
 
     <form action="" method="post">
       <div class="menu-items">
-        <h4>Espresso</h4>
+        <h4><?php echo $row['nama_produk']; ?></h4>
         <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
         <input type="hidden" name="id" value="">
         <input type="hidden" name="nama" value="Espresso">

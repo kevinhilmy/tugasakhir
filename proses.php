@@ -26,7 +26,7 @@
             $role = $_POST['role'];
 
             $query = "UPDATE tb_akun SET usn = '$username', pw = '$password', nama = '$nama', email = '$email', role = '$role' WHERE id='$id';";
-            $result = mysqli_query($conn, $query);
+            $result = mysqli_query($db, $query);
         }
     }
 

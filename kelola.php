@@ -1,10 +1,10 @@
 <?
     include 'koneksi.php';
 
-    if (isset($_GET['ubah'])) {
-        $id = $_GET['ubah'];
+    if (isset($_GET["ubah"])) {
+        $id = $_GET["ubah"];
 
-        $query = "SELECT * FROM akun WHERE id = '$id'";
+        $query = "SELECT * FROM akun WHERE id = '$id';";
         $result = mysqli_query($db, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
