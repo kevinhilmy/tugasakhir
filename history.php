@@ -11,7 +11,7 @@
     <title>History</title>
    <style>
       header {
-      background-color: #a05c26;
+      background-color: #bb874f;
       padding: 10px 20px;
       display: flex;
       align-items: center;
@@ -27,8 +27,9 @@
 
       .logo {
       display: flex;
+      flex-direction: row;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
         }
 
       .logo img {
@@ -36,7 +37,8 @@
         }
 
       .logo h3 {
-      color: #fff;
+      text-decoration: none;
+      color: #111;
       font-family: Georgia, serif;
         }
 
@@ -77,13 +79,14 @@
           padding-left: 70px;
           color: #fff;
           margin-bottom: 0;
+          font-size: 40px;
         }
 
       table {
             border-collapse: collapse;
             margin-left: auto;
             margin-right: auto;
-            background-color: #FFFDD0;
+            background-color:rgb(253, 250, 190);
             border-color: #795C32;
         }
 
@@ -95,6 +98,10 @@
             padding: 17px;
             font-size: 18px;
         }
+      
+      tr:nth-child(even) {
+            background-color:rgba(250, 215, 178, 0.59);
+        }
    </style>
 </head>
 <body>
@@ -103,7 +110,7 @@
   <header>
 
   <div class="logo">
-    <img src="Logo_kopi.jpg" alt="BeanPOS Logo">
+    <img src="./Images/logo.png" alt="BeanPOS Logo">
     <h3>BeanPOS</h3>
   </div>
 
@@ -119,7 +126,7 @@
   </nav>
 
     <table style="width: 1250px" border="1">
-         <h1>Riwayat pesanan</h1>
+         <h1>Riwayat pesanan</h1><br>
        <tr>
          <th>
             ID Akun

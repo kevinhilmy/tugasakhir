@@ -59,30 +59,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         body{
-            min-width: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #5d4d44, #a7825b);
+            margin: 0;
+            min-height: 100vh;
         }
         
         nav {
             display: flex;
-            background-color: #bc884f;
+            background-color: #a05c26;
             padding: 10px 20px;
+            display: flex;
             align-items: center;
             justify-content: space-between;
         }
         .logo {
          display: flex;
          align-items: center;
-         gap: 10px;
+         gap: 1px;
         }
         .logo img {
             height: 50px;
+            width: 100%;
         }
         .logo h3 {
-            color: #402e1e;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 20px;
         }
         .sidebar_icon {
             font-size: 24px;
-            color: #402e1e;
+            color:#000;
             cursor: pointer;
             user-select: none;
         }
@@ -178,8 +185,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <nav>
         <div class="logo">
-            <img src="Images/Logo_kopi.jpg">
-        <h3>BEANPOS</h3>
+            <img src="./Images/logo.png" alt="BeanPOS Logo">
+            <h3>BeanPOS</h3>
         </div>
         <label for="sidebar-toggle" class="sidebar_icon">&#9776;</label>
     </nav>

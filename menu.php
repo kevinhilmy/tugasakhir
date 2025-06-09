@@ -114,6 +114,16 @@
       background-color: #8b6845;
     }
 
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     .menu-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -201,6 +211,7 @@
 </header>
 
 <nav class="sidebar">
+  <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
   <a href="menu.php">Menu</a>
   <a href="cart.php">Pesanan</a>
   <a href="stok.php">Stok Barang</a>
