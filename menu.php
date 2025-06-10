@@ -175,7 +175,8 @@
 
     .add-cart span {
       font-size: 14px;
-      margin-right: 40px;
+      margin-right: 45px;
+      
     }
 
     .add-cart img {

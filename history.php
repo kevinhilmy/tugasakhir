@@ -118,11 +118,11 @@
   </header>
 
   <nav class="sidebar">
-  <a href="menu.html">Menu</a>
+  <a href="menu.php">Menu</a>
   <a href="">Pesanan</a>
   <a href="">Stok Barang</a>
   <a href="">Riwayat</a>
-  <a href="logout.html">Logout</a>
+  <a href="logout.php">Logout</a>
   </nav>
 
     <table style="width: 1250px" border="1">
