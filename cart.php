@@ -246,8 +246,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </tfoot>
         </table>
 
-        <div class="checkout-btn">
-            <a href="checkout.php" class="btn-bayar">Bayar Sekarang</a>
+        <div class="checkout">
+            <a href="pembayaran.php" class="btn-bayar">Bayar Sekarang</a>
         </div>
 
     <?php else: ?>

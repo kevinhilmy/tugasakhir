@@ -1,9 +1,22 @@
 <?php
-    include("koneksi.php");
+session_start();
+include 'koneksi.php';
 
-    $query = "SELECT * FROM tb_pemesanan";
-    $sql = mysqli_query($db, $query);
 ?>
+
+<!DOCTYPE html>
+<html>
+<head><title>Pembayaran</title></head>
+<body>
+    <h2>Masukkan Jumlah Bayar</h2>
+    <form method="post">
+        <p>Total: <strong>Rp <?= number_format(array_sum(array_map(fn($i) => $i['harga_produk'] * $i['jumlah'], $_SESSION['keranjang'])), 0, ',', '.') ?></strong></p>
+        <input type="number" name="bayar" required placeholder="Masukkan nominal bayar"><br><br>
+        <button type="submit">Proses Pembayaran</button>
+    </form>
+</body>
+</html>
+
 
 <!DOCTYPE html>
 <html lang="en">
