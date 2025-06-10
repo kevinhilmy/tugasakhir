@@ -130,10 +130,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         font-weight: bold;
         }
 
-        main {
-            height: 86vh;
-            background-image: linear-gradient(to right, #5e4f48 , #9f856b)
+        .cart-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1100px;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .tabel-keranjang {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        .tabel-keranjang tr {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr; /* kolom untuk nama, harga, jumlah */
+            gap: 10px;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* garis halus antar baris */
+        }
+
+        .tabel-keranjang td {
+            padding: 8px;
+            text-align: left;
+        }
+
         .keranjang {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -145,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .keranjang h3 {
             grid-column: 1 / -1;
             text-align: center;
-            color: #fff;
+            color: #ffffff;
             font-size: 32px;
             font-weight: bold;
             font-family: 'Georgia', serif;
@@ -199,61 +234,61 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="logout.php">Logout</a>
     </div>
     <main>
-       <div class="cart-container">
-    <h2>Isi Keranjang</h2>
+        <div class="cart-text">
+            <img src="Images/cart.png" alt="logo" style="width: 72px; height: 48px; display: block; margin: 0;">
+            <h2 style="text-align: center; color: #fff; font-family: 'Georgia', serif;">Isi Keranjang</h2>
+        </div>
+    <div class="cart-container">
+        <?php if (!empty($_SESSION['keranjang'])): ?>
+                <tbody>
+                    <?php 
+                    $total = 0;
+                    foreach ($_SESSION['keranjang'] as $index => $item):
+                        $harga = isset($item['harga']) ? (float)$item['harga'] : 0;
+                        $jumlah = isset($item['jumlah']) ? (int)$item['jumlah'] : 1; 
 
-    <?php if (!empty($_SESSION['keranjang'])): ?>
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th>Nama Produk</th>
-                    <th>Harga</th>
-                    <th>Jumlah</th>
-                    <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php 
-                $total = 0;
-                foreach ($_SESSION['keranjang'] as $index => $item):
-                    $harga = isset($item['harga']) ? (float)$item['harga'] : 0;
-                    $jumlah = isset($item['jumlah']) ? (int)$item['jumlah'] : 1; // default 1 jika gak ada
+                        $subtotal = $harga * $jumlah;
+                        $total += $subtotal;
 
-                    $subtotal = $harga * $jumlah;
-                    $total += $subtotal;
-
-                ?>
+                    ?>
+                    <table class="tabel-keranjang">
+                        <tbody>
+                            <?php foreach ($_SESSION['keranjang'] as $index => $item): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($item['nama']) ?></td>
+                                    <td>Rp. <?= number_format($item['harga'], 0, ',', '.') ?></td>
+                                    <td><?= (int)$item['jumlah'] ?></td>
+                                    <td>
+                                        <form method="post" style="margin:0;">
+                                            <input type="hidden" name="hapus_index" value="<?= $index ?>">
+                                            <button type="submit" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                        <tr>
+                            <td>Rp. <?= number_format($subtotal, 0, ',', '.') ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+                <tfoot>
                     <tr>
-                        <td><?= htmlspecialchars($item['nama']) ?></td>
-                        <td>Rp. <?= number_format($item['harga'], 0, ',', '.') ?></td>
-                        <td><?= (int)($item['jumlah'] ?? 1) ?></td>
-
-                        <td>Rp. <?= number_format($subtotal, 0, ',', '.') ?></td>
-                        <td>
-                            <form method="post" style="margin:0;">
-                    <input type="hidden" name="hapus_index" value="<?= $index ?>">
-                    <button type="submit" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</button>
-                </form>
-                        </td>
+                        <td colspan="3"><strong>Total</strong></td>
+                        <td><strong>Rp. <?= number_format($total, 0, ',', '.') ?></strong></td>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3"><strong>Total</strong></td>
-                    <td><strong>Rp. <?= number_format($total, 0, ',', '.') ?></strong></td>
-                </tr>
-            </tfoot>
-        </table>
+                </tfoot>
+            </table>
 
         <div class="checkout">
             <a href="pembayaran.php" class="btn-bayar">Bayar Sekarang</a>
         </div>
 
-    <?php else: ?>
-        <p class="empty-cart">Keranjang kosong.</p>
-    <?php endif; ?>
-</div>
+        <?php else: ?>
+            <p class="empty-cart">Keranjang kosong.</p>
+        <?php endif; ?>
+    </div>
     </main>
 
 </body>
