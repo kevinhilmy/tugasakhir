@@ -88,14 +88,17 @@ if (isset($_POST['aksi'])) {
         }
 
         body {
-            background-color: #736153;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #5d4d44, #a7825b);
+            margin: 0;
+            min-height: 100vh;
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             padding: 15px;
-            background-color: #bb874f;
+            background-color: #a05c26;
         }
 
         .logo {
@@ -173,29 +176,26 @@ if (isset($_POST['aksi'])) {
             background-color: #444;
         }
 
-        .isi {
-            padding: 30px;
-            /* display: flex;
-            flex-direction: column;
-            justify-content: center; */
-            align-items: center;
-            background-color: magenta;
+        .isi{
+            margin: 30px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
         }
 
-        .fc {
-            background-color: red;
+        table{
             display: flex;
-            align-items: center;
             justify-content: center;
         }
 
-        /* .form input{
-            display: flex;
-            /* justify-content: end;
-        } */
+        .aksi button{
+            border-radius: 10px;
+            border: transparent;
+            padding: 5px;
+        }
 
-        td label {
-            font-size: 20px
+        .box input{
+            padding: 0px 40px 10px 0px;
         }
     </style>
 </head>
@@ -218,7 +218,7 @@ if (isset($_POST['aksi'])) {
         <button class="openbtn" onclick="openNav()">&#9776;</button>
     </div>
     <div class="isi">
-        <div class="judul">
+        <div class="box">
             <?php
             // Cek apakah ada parameter 'ubah' di URL. Jika ada, tampilkan judul untuk mengedit data, tampilkan form untuk mengedit data dengan data yang sudah ada
             if (isset($_GET['ubah'])) {
@@ -228,59 +228,53 @@ if (isset($_POST['aksi'])) {
             }
             ?>
             <!-- // Form untuk menambahkan atau mengedit data akun -->
+            <form action="" method="post">
             <table>
-                <form action="" method="post">
-                    <tr>
-                        <td><label for="id">ID</label></td>
-                        <td><input type="text" name="id" id="id" value="<?php echo $data['id']; ?>" readonly></td>
-                    </tr>
-                    <tr>
-                        <td><label for="usn">Username</label></td>
-                        <td><input type="text" name="usn" id="usn" value="<?php echo $data['username']; ?>" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="pw">Password</label></td>
-                        <td><input type="password" name="pw" id="pw" value="<?php echo $data['password']; ?>" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="nama">Nama</label></td>
-                        <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="email">Email</label></td>
-                        <td><input type="email" name="email" id="email" value="<?php echo $data['email']; ?>" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="role">Role</label></td>
-                        <td><select name="role" id="role">
-                                <option value="" disabled selected>Pilih Role</option>
-                                <option value="admin" <?php if ($data['role'] == 'admin') echo 'selected'; ?>>Admin</option>
-                                <option value="kasir" <?php if ($data['role'] == 'kasir') echo 'selected'; ?>>Kasir</option>
-                            </select></td>
-                    </tr>
+                <tr>
+                    <td><label for="usn">Username</label></td>
+                    <td><input type="text" name="usn" id="usn" value="<?php echo $data['username']; ?>" required></td>
+                </tr>
+                <tr>
+                    <td><label for="pw">Password</label></td>
+                    <td><input type="password" name="pw" id="pw" value="<?php echo $data['password']; ?>" required></td>
+                </tr>
+                <tr>
+                    <td><label for="nama">Nama</label></td>
+                    <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" name="email" id="email" value="<?php echo $data['email']; ?>" required></td>
+                </tr>
+                <tr>
+                    <td><label for="role">Role</label></td>
+                    <td><select name="role" id="role">
+                            <option value="" disabled selected>Pilih Role</option>
+                            <option value="admin" <?php if ($data['role'] == 'admin') echo 'selected'; ?>>Admin</option>
+                            <option value="kasir" <?php if ($data['role'] == 'kasir') echo 'selected'; ?>>Kasir</option>
+                        </select></td>
+                </tr>
             </table>
             <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
             <input type="hidden" name="aksi" value="<?php echo isset($_GET['ubah']) ? 'edit' : 'add'; ?>">
-
-
         </div>
-        <div class="aksi">
-            <?php
-            if (isset($_GET['ubah'])) {
-            ?>
-                <button type="submit" name="aksi" value="edit">Edit Perubahan</button>
-            <?php
-            } else {
-            ?>
-                <button type="submit" name="aksi" value="add">Tambahkan Perubahan</button>
-            <?php
-            }
-            ?>
-            <a href="akun.php">
-                <input type="button" value="batal">
-            </a>
-        </div>
-        </form>
+            <div class="aksi">
+                <?php
+                if (isset($_GET['ubah'])) {
+                ?>
+                    <button type="submit" name="aksi" value="edit">Edit Perubahan</button>
+                <?php
+                } else {
+                ?>
+                    <button type="submit" name="aksi" value="add">Tambahkan Perubahan</button>
+                <?php
+                }
+                ?>
+                <a href="akun.php">
+                    <button>Batal</button>
+                </a>
+            </div>
+            </form>
     </div>
 </body>
 
