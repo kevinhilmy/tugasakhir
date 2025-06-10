@@ -15,11 +15,24 @@
       $_SESSION['keranjang'] = [];
     }
 
-    $_SESSION['keranjang'][] = [
-      'id' => $produk['id_produk'],
-      'nama' => $produk['nama_produk'],
-      'harga' => $produk['harga_produk']
-    ];
+    $found = false;
+    foreach ($_SESSION['keranjang'] as &$item) {
+        if ($item['id'] === $produk['id_produk']) {
+            $item['jumlah'] += 1; // Tambahkan jumlah
+            $found = true;
+            break;
+        }
+    }
+    unset($item); // Hapus referensi
+
+    if (!$found) {
+        $_SESSION['keranjang'][] = [
+            'id' => $produk['id_produk'],
+            'nama' => $produk['nama_produk'],
+            'harga' => $produk['harga_produk'],
+            'jumlah' => 1
+        ];
+    }
 
     header("Location: menu.php");
     exit;

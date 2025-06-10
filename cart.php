@@ -157,11 +157,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .tabel-keranjang tr {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr; /* kolom untuk nama, harga, jumlah */
+            grid-template-columns: 2fr 1fr 1fr 1fr; 
             gap: 10px;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* garis halus antar baris */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .tabel-keranjang td {
@@ -245,8 +245,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $total = 0;
                     foreach ($_SESSION['keranjang'] as $index => $item):
                         $harga = isset($item['harga']) ? (float)$item['harga'] : 0;
-                        $jumlah = isset($item['jumlah']) ? (int)$item['jumlah'] : 1; 
-
+                        $jumlah = $item['jumlah'] ?? 1;
                         $subtotal = $harga * $jumlah;
                         $total += $subtotal;
 
@@ -268,9 +267,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-                        <tr>
-                            <td>Rp. <?= number_format($subtotal, 0, ',', '.') ?></td>
-                        </tr>
                     <?php endforeach; ?>
                 </tbody>
                 <tfoot>
@@ -290,6 +286,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php endif; ?>
     </div>
     </main>
-
 </body>
 </html>
