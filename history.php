@@ -1,6 +1,18 @@
 <?php
    session_start();
    include 'koneksi.php';
+
+   function getAllAkun()
+{
+    global $db;
+    $query = "SELECT * FROM tb_akun";
+    $result = mysqli_query($db, $query);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = $row;
+    }
+    return $data;
+   }
 ?>
 
 <!DOCTYPE html>
@@ -47,31 +59,42 @@
       background-color: #6e4c2c;
       position: fixed;
       top: 0;
-      left: -250px;
+      right: -250px;
       height: 100%;
       padding-top: 60px;
       transition: 0.3s;
       z-index: 1000;
-        }
 
-      #sidebar-toggle {
+    }
+
+    #sidebar-toggle {
       display: none;
-        }
+    }
 
-      #sidebar-toggle:checked ~ .sidebar {
-      left: 0;
-        }
+    #sidebar-toggle:checked ~ .sidebar {
+      right: 0;
+    }
 
-      .sidebar a {
+    .sidebar a {
       padding: 15px 24px;
       text-decoration: none;
       color: #fff;
       display: block;
-        }
+    }
 
-      .sidebar a:hover {
+    .sidebar a:hover {
       background-color: #8b6845;
-        }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
       h1 {
           margin-left: auto;
@@ -118,206 +141,26 @@
   </header>
 
   <nav class="sidebar">
+    <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
   <a href="menu.php">Menu</a>
-  <a href="">Pesanan</a>
-  <a href="">Stok Barang</a>
-  <a href="">Riwayat</a>
+  <a href="cart.php">Pesanan</a>
+  <a href="stok.php">Stok Barang</a>
+  <a href="history.php">Riwayat</a>
   <a href="logout.php">Logout</a>
   </nav>
 
     <table style="width: 1250px" border="1">
          <h1>Riwayat pesanan</h1><br>
        <tr>
-         <th>
-            ID Akun
-         </th>   
-         <th>
-            ID Pesanan
-         </th>   
-         <th>
-            Tanggal
-         </th>   
-         <th>
-            Total Produk
-         </th>   
-         <th>
-            Total Harga
-         </th>   
-         <th>
-            Bayar
-         </th>   
-         <th>
-            Kembali
-         </th>   
+         <th>ID Akun</th>   
+         <th>ID Pesanan</th>   
+         <th>Tanggal</th>   
+         <th>Total Produk</th>   
+         <th>Total Harga</th>   
+         <th>Bayar</th>   
+         <th>Kembali</th>   
        </tr>
-
-       <tr align="center">
-         <td> 
-            kasir1
-         </td>   
-         <td> 
-            123451
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            2
-         </td>  
-         <td> 
-            53.000
-         </td>   
-         <td> 
-            55.000
-         </td>   
-         <td> 
-            2.000
-         </td>   
-       </tr>
-
-       <tr align="center">
-         <td> 
-            kasir1
-         </td>   
-         <td> 
-            123452
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            1
-         </td>  
-         <td> 
-            25.000
-         </td>   
-         <td> 
-            25.000
-         </td>   
-         <td> 
-            -
-         </td>   
-       </tr>
-
-       <tr align="center">
-         <td> 
-            kasir1
-         </td>   
-         <td> 
-            123453
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            1
-         </td>  
-         <td> 
-            17.000
-         </td>   
-         <td> 
-            20.000
-         </td>   
-         <td> 
-            3.000
-         </td>   
-       </tr>
-
-       <tr align="center">
-         <td> 
-            kasir2
-         </td>   
-         <td> 
-            123454
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            5
-         </td>  
-         <td> 
-            113.000
-         </td>   
-         <td> 
-            120.000
-         </td>   
-         <td> 
-            7.000
-         </td>   
-       </tr>
-
-       <tr align="center">
-         <td> 
-            kasir2
-         </td>   
-         <td> 
-            123455
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            3
-         </td>  
-         <td> 
-            51.000
-         </td>   
-         <td> 
-            51.000
-         </td>   
-         <td> 
-            -
-         </td>   
-       </tr>
-    
-       <tr align="center">
-         <td> 
-            kasir2
-         </td>   
-         <td> 
-            123456
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            2
-         </td>  
-         <td> 
-            50.000
-         </td>   
-         <td> 
-            50.000
-         </td>   
-         <td> 
-            -
-         </td>   
-       </tr>
-
-       <tr align="center">
-         <td> 
-            kasir3
-         </td>   
-         <td> 
-            123457
-         </td>  
-         <td> 
-            15-06-2025
-         </td>  
-         <td> 
-            2
-         </td>  
-         <td> 
-            49.000
-         </td>   
-         <td> 
-            50.000
-         </td>   
-         <td> 
-            1.000
-         </td>   
-       </tr>
+       
     </table>
 </body>
 </html>
