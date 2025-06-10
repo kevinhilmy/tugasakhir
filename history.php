@@ -5,7 +5,7 @@
    function getAllAkun()
 {
     global $db;
-    $query = "SELECT * FROM tb_akun";
+    $query = "SELECT * FROM tb_pemesanan";
     $result = mysqli_query($db, $query);
     $data = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -160,7 +160,22 @@
          <th>Bayar</th>   
          <th>Kembali</th>   
        </tr>
-       
+
+       <?php
+    $riwayat = getAllAkun();
+    foreach ($riwayat as $row) {
+      echo "<tr>";
+      echo "<td>" . htmlspecialchars($row['id_akun']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['id_pemesanan']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['tanggal']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['total_produk']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['total_harga']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['bayar']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['kembali']) . "</td>";
+      echo "</tr>";
+    }
+  ?>
+  
     </table>
 </body>
 </html>
