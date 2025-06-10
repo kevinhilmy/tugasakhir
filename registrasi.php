@@ -11,7 +11,7 @@
     <title>Registrasi</title>
     <style>
         body {
-            margin: 0;
+            margin: 10%;
             height: 100vh;
             font-family: 'Georgia', serif;
             background-image:url(./Images/BackgroundBean.jpeg) ;
@@ -19,17 +19,19 @@
             background-position: center;
             background-repeat: no-repeat;
             color: white;
+            padding-right: 40%;
         }
 
         h1 {color: rgb(253, 251, 251);
-            padding-left: 20%;
-            padding-top: 40px;
+            display: flex;
+            justify-content: center;
             font-size: 35px;
             font-weight: bold;
         }
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         form label {
@@ -62,7 +64,6 @@
             padding: 12px;
             border: none;
             border-radius: 25px;
-            margin-left: 13%;
         }
 
         input[type="submit"]:hover {
@@ -73,7 +74,6 @@
         p {
             color: white;
             font-size: 13px;
-            margin-left: 10%;
         }
 
         a {
@@ -82,8 +82,9 @@
         }
 
         .registrasi-container {
-            padding-left: 15%;
-            padding-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
         }
     </style>
 </head>
@@ -102,8 +103,8 @@
             <input type="email" name="email" required> <br>
 
             <input type="submit" value="Sign Up">
+            <p class = "login">Sudah punya akun? <a href="index.php">Login</a></p>
         </form>
-        <p class = "login">Sudah punya akun? <a href="index.php">Login</a></p>
     </div>
 </body>
 </html>

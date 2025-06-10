@@ -10,7 +10,7 @@ include 'koneksi.php';
     <title>Login</title>
     <style>
         body {
-            margin: 0;
+            margin: 10%;
             height: 100vh;
             font-family: 'Georgia', serif;
             background-image:url(./Images/BackgroundBean.jpeg) ;
@@ -18,18 +18,19 @@ include 'koneksi.php';
             background-position: center;
             background-repeat: no-repeat;
             color: white;
-
+            padding-right: 40%;
         }
 
         h1 {color: rgb(253, 251, 251);
-            padding-left: 25%;
-            padding-top: 50px;
+            display: flex;
+            justify-content: center;
             font-size: 35px;
             font-weight: bold;
         }
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         form label {
@@ -56,7 +57,6 @@ include 'koneksi.php';
             padding: 12px;
             border: none;
             border-radius: 25px;
-            margin-left: 13%;
         }
 
         input[type="submit"]:hover {
@@ -67,17 +67,17 @@ include 'koneksi.php';
         p {
             color: white;
             font-size: 13px;
-            margin-left: 10%;
         }
 
         a {
-        color: white;
-        text-decoration: underline;
+            color: white;
+            text-decoration: underline;
         }
 
         .login-container {
-            padding-left: 15%;
-            padding-top: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     </style>
 </head>
@@ -93,8 +93,8 @@ include 'koneksi.php';
             <input type="password" name="password" required><br>
 
             <input type="submit" value="Login">
+            <p class = "signUp">Belum punya akun? <a href="registrasi.php">Sign Up</a></p>
         </form>
-        <p class = "signUp">Belum punya akun? <a href="registrasi.php">Sign Up</a></p>
     </div>
 </body>
 </html>

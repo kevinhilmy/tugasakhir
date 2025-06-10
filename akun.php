@@ -158,7 +158,7 @@ function getAllAkun()
             background-color: #edd7bf;
         }
 
-        .aksi{
+        .aksi {
             display: flex;
             justify-content: center;
             gap: 10px;
@@ -232,26 +232,6 @@ function getAllAkun()
                 echo "<tr><td colspan='8'>Tidak ada data akun.</td></tr>";
             }
             ?>
-            <!-- <tr>
-                <td>1</td>
-                <td>kevin</td>
-                <td>15</td>
-                <td>hiru</td>
-                <td>kevinaja</td>
-                <td>kevinhilmy.r@gmial.com</td>
-                <td>kasir</td>
-                <td class="aksi"><a href="kelola.php">edit</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>abah</td>
-                <td>2</td>
-                <td>abah</td>
-                <td>abahaja</td>
-                <td>abahabah@gmail.com</td>
-                <td>admin</td>
-                <td class="aksi"><input type="button" value="edit"><input type="button" value="hapus"></td>
-            </tr> -->
         </table>
         <div class="edit">
             <a href="kelola.php">
