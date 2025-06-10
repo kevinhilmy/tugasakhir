@@ -215,16 +215,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <tbody>
                 <?php 
                 $total = 0;
-                foreach ($_SESSION['keranjang'] as $item):
-                    $harga = isset($item['harga_produk']) ? (float)$item['harga_produk'] : 0;
+                foreach ($_SESSION['keranjang'] as $index => $item):
+                    $harga = isset($item['harga']) ? (float)$item['harga'] : 0;
                     $jumlah = isset($item['jumlah']) ? (int)$item['jumlah'] : 1; // default 1 jika gak ada
 
                     $subtotal = $harga * $jumlah;
+                    $total += $subtotal;
 
                 ?>
                     <tr>
-                        <td><?= htmlspecialchars($item['nama_produk']) ?></td>
-                        <td>Rp. <?= number_format($item['harga_produk'], 0, ',', '.') ?></td>
+                        <td><?= htmlspecialchars($item['nama']) ?></td>
+                        <td>Rp. <?= number_format($item['harga'], 0, ',', '.') ?></td>
                         <td><?= (int)($item['jumlah'] ?? 1) ?></td>
 
                         <td>Rp. <?= number_format($subtotal, 0, ',', '.') ?></td>

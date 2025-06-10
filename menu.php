@@ -2,36 +2,29 @@
   session_start();
   include 'koneksi.php';
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nama = mysqli_real_escape_string($db, $_POST['nama']);
-    $harga = (int)$_POST['harga'];
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_produk'])) {
+  $id_produk = (int)$_POST['id_produk'];
 
-    $query = mysqli_query($db, "SELECT * FROM tb_produk WHERE nama_produk = '$nama' AND harga_produk = $harga");
-      if (!$query) {
-        die("Query failed: " . mysqli_error($db));
-      }
+  // Ambil produk dari database berdasarkan ID
+  $query = mysqli_query($db, "SELECT * FROM tb_produk WHERE id_produk = $id_produk");
 
-    $nama_produk = mysqli_real_escape_string($db, $nama);
-    $harga_produk = (int)$harga;
+  if ($query && mysqli_num_rows($query) > 0) {
+    $produk = mysqli_fetch_assoc($query);
 
-    // Cek apakah produk ada di database
-    $tb_produk = mysqli_fetch_assoc($query);
-
-    if($tb_produk) {
-      if (!isset($_SESSION['keranjang'])) {
-            $_SESSION['keranjang'] = [];
-      }
-
-      $_SESSION['keranjang'][] = [
-        'nama' => $nama,
-        'harga' => $harga
-      ];
-
-      // Redirect untuk mencegah form resubmission
-      header("Location: menu.php");
-      exit;
+    if (!isset($_SESSION['keranjang'])) {
+      $_SESSION['keranjang'] = [];
     }
+
+    $_SESSION['keranjang'][] = [
+      'id' => $produk['id_produk'],
+      'nama' => $produk['nama_produk'],
+      'harga' => $produk['harga_produk']
+    ];
+
+    header("Location: menu.php");
+    exit;
   }
+}
 
   $result = mysqli_query($db, "SELECT * FROM tb_produk");
 ?>
@@ -226,20 +219,18 @@
     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
 
     <form action="" method="post">
-      <div class="menu-items">
-        <h4><?php echo $row['nama_produk']; ?></h4>
-        <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Espresso">
-        <input type="hidden" name="harga" value="25000">
-        <div class="add-cart">
-          <span><?php echo $row['harga_produk']; ?></span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./Images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
+  <div class="menu-items">
+    <h4><?php echo $row['nama_produk']; ?></h4>
+    <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
+    <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
+    <div class="add-cart">
+      <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
+      <button type="submit" style="background: none; border: none; padding: 0;">
+        <img src="./Images/cart.png" alt="Add to Cart">
+      </button>
+    </div>
+  </div>
+</form>
 
     <form action="" method="post">
       <div class="menu-items">
