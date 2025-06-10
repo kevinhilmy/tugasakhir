@@ -273,6 +273,11 @@
       <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
     </div>
   <?php endif; ?>
+  <div class="tombol">
+    <a href='cart.php'>
+      <button>Lihat Keranjang</button>
+    </a>
+  </div>
 </main>
 
 </body>
