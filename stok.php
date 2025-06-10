@@ -1,6 +1,9 @@
 <?php
     session_start();
     include 'koneksi.php';
+
+    $query = 'SELECT * FROM tb_produk';
+    $result = mysqli_query($db, $query);
 ?>
 
 <!DOCTYPE html>
@@ -177,104 +180,20 @@
     <div class="content">
         <h1>STOK BARANG</h1>
         <table style="width: 100%;">
-                <tr>
-                    <th>Nama</th>
-                    <th>id</th>
-                    <th>jumlah</th>
-                    <th>harga</th>
-                    <th>stok</th>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>esspresso</td>
-                    <td>21</td>
-                    <td>45</td>
-                    <td>RP 45.000</td>
-                    <td>69</td>
-                </tr>
+            <tr>
+                <th>Nama</th>
+                <th>id</th>
+                <th>harga</th>
+                <th>stok</th>
+            </tr>
+            <?php while($row = mysqli_fetch_array($result)){ ?>
+            <tr>
+                <td><?php echo $row['nama_produk']; ?></td>
+                <td><?php echo $row['id_produk']; ?></td>
+                <td><?php echo $row['harga_produk']; ?></td>
+                <td><?php echo $row['stok_produk']; ?></td>
+            </tr>            
+            <?php }?>
         </table>
         <div class="edit">
             <input type="button" value="edit">

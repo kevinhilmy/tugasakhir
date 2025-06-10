@@ -42,7 +42,10 @@ function getAllAkun()
         }
 
         body {
-            background-color: #736153;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #5d4d44, #a7825b);
+            margin: 0;
+            min-height: 100vh;
         }
 
         .nav {
@@ -53,9 +56,8 @@ function getAllAkun()
             justify-content: space-between;
         }
 
-        .logo {
+        .logo a {
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
         }
@@ -64,6 +66,7 @@ function getAllAkun()
             color: #fff;
             font-family: Georgia, serif;
             font-size: 20px;
+            text-decoration: none;
         }
 
         a img {

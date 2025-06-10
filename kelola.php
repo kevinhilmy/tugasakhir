@@ -101,7 +101,7 @@ if (isset($_POST['aksi'])) {
             background-color: #a05c26;
         }
 
-        .logo {
+        .logo a{
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -109,12 +109,15 @@ if (isset($_POST['aksi'])) {
         }
 
         .logo a {
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 20px;
             text-decoration: none;
-            color: #111;
         }
 
         a img {
-            width: 50px;
+            height: 50px;
+            width: 100%;
         }
 
         .sidepanel {
