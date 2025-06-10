@@ -219,124 +219,12 @@
     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
 
     <form action="" method="post">
-  <div class="menu-items">
-    <h4><?php echo $row['nama_produk']; ?></h4>
-    <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
-    <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
-    <div class="add-cart">
-      <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
-      <button type="submit" style="background: none; border: none; padding: 0;">
-        <img src="./Images/cart.png" alt="Add to Cart">
-      </button>
-    </div>
-  </div>
-</form>
-
-    <form action="" method="post">
       <div class="menu-items">
-        <h4>Creamy Latte</h4>
-        <img src="./Images/creamy-latte-bg.png" alt="Creamy Latte" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Creamy Latte">
-        <input type="hidden" name="harga" value="17000">
+        <h4><?php echo $row['nama_produk']; ?></h4>
+        <img src="<?php echo $row['foto']; ?>" alt="Espresso" class="product">
+        <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
         <div class="add-cart">
-          <span>Rp.17.000</span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./Images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <form action="" method="post">
-      <div class="menu-items">
-        <h4>Cappucino</h4>
-        <img src="./Images/Cappucino_bg.png" alt="Cappucino" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Cappucino">
-        <input type="hidden" name="harga" value="25000">
-        <div class="add-cart">
-          <span>Rp.25.000</span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <form action="" method="post">
-      <div class="menu-items">
-        <h4>Mocha Latte</h4>
-        <img src="./Images/Mocha_Latte_bg.png" alt="Mocha Latte" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Mocha Latte">
-        <input type="hidden" name="harga" value="17000">
-        <div class="add-cart">
-          <span>Rp.17.000</span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./Images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <form action="" method="post">
-      <div class="menu-items">
-        <h4>Iced Americano</h4>
-        <img src="./Images/Iced_americano_bg.png" alt="Iced Americano" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Iced Americano">
-        <input type="hidden" name="harga" value="26000">
-        <div class="add-cart">
-          <span>Rp.26.000</span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./Images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <form action="" method="post">
-      <div class="menu-items">
-        <h4>Macchiato Latte</h4>
-        <img src="./Images/Macchiato_bg.png" alt="Macchiato Latte" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Macchiato Latte">
-        <input type="hidden" name="harga" value="24000">
-        <div class="add-cart">
-            <span>Rp.24.000</span>
-            <button type="submit" style="background: none; border: none; padding: 0;">
-              <img src="./Images/cart.png" alt="Add to Cart">
-            </button>
-        </div>
-      </div>
-    </form>
-
-    <form action="" method="post">
-      <div class="menu-items">
-        <h4>Cold Brew</h4>
-        <img src="./Images/cold brew.jpg" alt="Cold Brew" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Cold Brew">
-        <input type="hidden" name="harga" value="25000">
-        <div class="add-cart">
-          <span>Rp.25.000</span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./Images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <form action="" method="post">
-      <div class="menu-items">
-        <h4>Cafe au Lait</h4>
-        <img src="./Images/cafe-au-lait-bg.png" alt="Cafe au Lait" class="product">
-        <input type="hidden" name="id" value="">
-        <input type="hidden" name="nama" value="Cafe au Lait">
-        <input type="hidden" name="harga" value="27000">
-        <div class="add-cart">
-          <span>Rp.27.000</span>
+          <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
           <button type="submit" style="background: none; border: none; padding: 0;">
             <img src="./Images/cart.png" alt="Add to Cart">
           </button>
