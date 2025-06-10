@@ -175,7 +175,8 @@
 
     .add-cart span {
       font-size: 14px;
-      margin-right: 40px;
+      margin-right: 45px;
+      
     }
 
     .add-cart img {
@@ -219,18 +220,18 @@
     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
 
     <form action="" method="post">
-      <div class="menu-items">
-        <h4><?php echo $row['nama_produk']; ?></h4>
-        <img src="<?php echo $row['foto']; ?>" alt="Espresso" class="product">
-        <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
-        <div class="add-cart">
-          <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
-          <button type="submit" style="background: none; border: none; padding: 0;">
-            <img src="./Images/cart.png" alt="Add to Cart">
-          </button>
-        </div>
-      </div>
-    </form>
+  <div class="menu-items">
+    <h4><?php echo $row['nama_produk']; ?></h4>
+    <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
+    <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
+    <div class="add-cart">
+      <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
+      <button type="submit" style="background: none; border: none; padding: 0;">
+        <img src="./Images/cart.png" alt="Add to Cart">
+      </button>
+    </div>
+  </div>
+</form>
     <?php endwhile; ?>
   </div>
 </main>
