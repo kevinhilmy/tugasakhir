@@ -34,7 +34,9 @@
         ];
     }
 
-    header("Location: menu.php");
+  $_SESSION['message'] = $produk['nama_produk'] . " berhasil ditambahkan ke keranjang!";
+
+    header("Location: $_SERVER[PHP_SELF]");
     exit;
   }
 }
@@ -203,6 +205,25 @@
       transform: scale(1.1);
       background-color:rgb(212, 163, 114);
     }
+
+    .alert {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: #f0c674;
+    color: #3b2900;
+    padding: 25px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2000;
+    animation: fadeOut 3s forwards;
+    }
+
+    @keyframes fadeOut {
+    0% { opacity: 1;}
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -247,6 +268,11 @@
 </form>
     <?php endwhile; ?>
   </div>
+  <?php if (isset($_SESSION['message'])): ?>
+    <div class="alert">
+      <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
+    </div>
+  <?php endif; ?>
 </main>
 
 </body>
