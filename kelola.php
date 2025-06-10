@@ -176,25 +176,25 @@ if (isset($_POST['aksi'])) {
             background-color: #444;
         }
 
-        .isi{
+        .isi {
             margin: 30px;
             padding: 10px;
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
         }
 
-        table{
+        table {
             display: flex;
             justify-content: center;
         }
 
-        .aksi button{
+        .aksi button {
             border-radius: 10px;
             border: transparent;
             padding: 5px;
         }
 
-        .box input{
+        .box input {
             padding: 0px 40px 10px 0px;
         }
     </style>
@@ -229,52 +229,58 @@ if (isset($_POST['aksi'])) {
             ?>
             <!-- // Form untuk menambahkan atau mengedit data akun -->
             <form action="" method="post">
-            <table>
-                <tr>
-                    <td><label for="usn">Username</label></td>
-                    <td><input type="text" name="usn" id="usn" value="<?php echo $data['username']; ?>" required></td>
-                </tr>
-                <tr>
-                    <td><label for="pw">Password</label></td>
-                    <td><input type="password" name="pw" id="pw" value="<?php echo $data['password']; ?>" required></td>
-                </tr>
-                <tr>
-                    <td><label for="nama">Nama</label></td>
-                    <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" required></td>
-                </tr>
-                <tr>
-                    <td><label for="email">Email</label></td>
-                    <td><input type="email" name="email" id="email" value="<?php echo $data['email']; ?>" required></td>
-                </tr>
-                <tr>
-                    <td><label for="role">Role</label></td>
-                    <td><select name="role" id="role">
-                            <option value="" disabled selected>Pilih Role</option>
-                            <option value="admin" <?php if ($data['role'] == 'admin') echo 'selected'; ?>>Admin</option>
-                            <option value="kasir" <?php if ($data['role'] == 'kasir') echo 'selected'; ?>>Kasir</option>
-                        </select></td>
-                </tr>
-            </table>
-            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
-            <input type="hidden" name="aksi" value="<?php echo isset($_GET['ubah']) ? 'edit' : 'add'; ?>">
+                <table>
+                    <tr>
+                        <td><label for="usn">Username</label></td>
+                        <td><input type="text" name="usn" id="usn" value="<?php echo $data['username']; ?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pw">Password</label></td>
+                        <td><input type="password" name="pw" id="pw" value="<?php echo $data['password']; ?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Nama</label></td>
+                        <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email</label></td>
+                        <td><input type="email" name="email" id="email" value="<?php echo $data['email']; ?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="role">Role</label></td>
+                        <td><select name="role" id="role">
+                                <option value="" disabled selected>Pilih Role</option>
+                                <option value="admin" <?php if ($data['role'] == 'admin') echo 'selected'; ?>>Admin</option>
+                                <option value="kasir" <?php if ($data['role'] == 'kasir') echo 'selected'; ?>>Kasir</option>
+                            </select></td>
+                    </tr>
+                </table>
+                <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                <input type="hidden" name="aksi" value="<?php echo isset($_GET['ubah']) ? 'edit' : 'add'; ?>">
         </div>
-            <div class="aksi">
+        <div class="aksi">
+            <?php
+            if (isset($_GET['ubah'])) {
+            ?>
+                <button type="submit" name="aksi" value="edit">Edit Perubahan</button>
+            <?php
+            } else {
+            ?>
+                <button type="submit" name="aksi" value="add">Tambahkan Akun</button>
+            <?php
+            }
+            ?>
+            <a href="akun.php">
                 <?php
                 if (isset($_GET['ubah'])) {
-                ?>
-                    <button type="submit" name="aksi" value="edit">Edit Perubahan</button>
-                <?php
+                    echo "<button type='button'>Batal</button>";
                 } else {
-                ?>
-                    <button type="submit" name="aksi" value="add">Tambahkan Perubahan</button>
-                <?php
+                    echo "<button type='button'>Kembali</button>";
                 }
                 ?>
-                <a href="akun.php">
-                    <button>Batal</button>
-                </a>
-            </div>
-            </form>
+            </a>
+        </div>
+        </form>
     </div>
 </body>
 

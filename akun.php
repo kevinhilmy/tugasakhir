@@ -46,10 +46,11 @@ function getAllAkun()
         }
 
         .nav {
+            background-color: #a05c26;
+            padding: 10px 20px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            padding: 15px;
-            background-color: #bb874f;
         }
 
         .logo {
@@ -60,12 +61,14 @@ function getAllAkun()
         }
 
         .logo a {
-            text-decoration: none;
-            color: #111;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 20px;
         }
 
         a img {
-            width: 50px;
+            height: 50px;
+            width: 100%;
         }
 
         .sidepanel {
