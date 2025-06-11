@@ -166,7 +166,7 @@
     foreach ($riwayat as $row) {
       echo "<tr>";
       echo "<td>" . htmlspecialchars($row['id_akun']) . "</td>";
-      echo "<td>" . htmlspecialchars($row['id_pemesanan']) . "</td>";
+      echo "<td>" . htmlspecialchars($row['id_pesanan']) . "</td>";
       echo "<td>" . htmlspecialchars($row['tanggal']) . "</td>";
       echo "<td>" . htmlspecialchars($row['total_produk']) . "</td>";
       echo "<td>" . htmlspecialchars($row['total_harga']) . "</td>";

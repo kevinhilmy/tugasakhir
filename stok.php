@@ -141,6 +141,7 @@
         .aksi{
             display: flex;
             justify-content: center;
+            gap: 10px;
         }
 
         .aksi a{
@@ -185,6 +186,7 @@
                 <th>id</th>
                 <th>harga</th>
                 <th>stok</th>
+                <th>aksi</th>
             </tr>
             <?php while($row = mysqli_fetch_array($result)){ ?>
             <tr>
@@ -192,12 +194,10 @@
                 <td><?php echo $row['id_produk']; ?></td>
                 <td><?php echo $row['harga_produk']; ?></td>
                 <td><?php echo $row['stok_produk']; ?></td>
+                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>">edit</a><a href="kelola_stok.php?hapus=<?php echo $row['id_produk']?>">hapus</a></td>
             </tr>            
             <?php }?>
         </table>
-        <div class="edit">
-            <input type="button" value="edit">
-        </div>
     </div>
 </body>
 </html>
