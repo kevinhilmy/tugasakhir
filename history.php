@@ -108,7 +108,7 @@
          }
 
         .content h1{
-            padding-bottom: 10px;
+            padding-left: 5px;
         }
       
       table {

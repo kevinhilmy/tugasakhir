@@ -81,7 +81,7 @@ function getAllAkun()
         }
 
         .sidepanel {
-            height: 250px;
+            height: 100%;
             /* Specify a height */
             width: 0;
             /* 0 width - change this with JavaScript */
@@ -99,6 +99,7 @@ function getAllAkun()
             /* Place content 60px from the top */
             transition: 0.5s;
             /* 0.5 second transition effect to slide in the sidepanel */
+            background-color: #6e4c2c;
         }
 
         /* The sidepanel links */
@@ -106,14 +107,9 @@ function getAllAkun()
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
-            color: #818181;
+            color: #fff;
             display: block;
             transition: 0.3s;
-        }
-
-        /* When you mouse over the navigation links, change their color */
-        .sidepanel a:hover {
-            color: #f1f1f1;
         }
 
         /* Position and style the close button (top right corner) */
@@ -135,10 +131,6 @@ function getAllAkun()
             border: none;
         }
 
-        .openbtn:hover {
-            background-color: #444;
-        }
-
         .content {
             display: flex;
             flex-direction: column;
@@ -151,6 +143,7 @@ function getAllAkun()
 
         .content h1 {
             padding: 10px;
+            padding-left: 15px;
         }
 
         table,
@@ -199,7 +192,7 @@ function getAllAkun()
         <div class="logo">
             <a href="">
                 <img src="./Images/logo.png" alt="logo">
-                <p>BEANPOS</p>
+                <p>BeanPOS</p>
             </a>
         </div>
         <div id="mySidepanel" class="sidepanel">
@@ -237,7 +230,7 @@ function getAllAkun()
                                 <td>" . htmlspecialchars($a['password']) . "</td>
                                 <td>" . htmlspecialchars($a['email']) . "</td>
                                 <td>" . htmlspecialchars($a['role']) . "</td>
-                                <td class='aksi'><a href='kelola.php?ubah=" . $a['id'] . "'>edit</a><a href='proses.php?hapus=" . $a['id'] . "'>hapus</a></td>
+                                <td class='aksi'><a href='kelola.php?ubah=" . $a['id'] . "'>edit</a><a href='proses.php?hapus=" . $a['id'] . "' onclick=\"return confirm('Yakin ingin menghapus akun?');\">hapus</a></td>
                         </tr>";
                 }
             } else {

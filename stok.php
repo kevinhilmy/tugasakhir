@@ -26,67 +26,77 @@
         }
     </script>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
 
-        body{
-            background-color: #736153;
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #5d4d44, #a7825b);
+            margin: 0;
+            min-height: 100vh;
         }
 
-        .nav{
+        .nav {
+            background-color: #a05c26;
+            padding: 10px 20px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            padding: 15px;
-            background-color: #bb874f;
         }
 
-        .logo{
+        .logo {
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
         }
 
-        .logo a{
+        .logo a {
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 20px;
             text-decoration: none;
-            color: #111;
         }
 
-        a img{
-            width: 50px;
+        a img {
+            height: 50px;
+            width: 100%;
         }
 
         .sidepanel {
-            height: 250px; /* Specify a height */
-            width: 0; /* 0 width - change this with JavaScript */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Stay on top */
+            height: 100%;
+            /* Specify a height */
+            width: 0;
+            /* 0 width - change this with JavaScript */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Stay on top */
             top: 0;
             right: 0;
-            background-color: #111; /* Black*/
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 60px; /* Place content 60px from the top */
-            transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+            background-color: #111;
+            /* Black*/
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 60px;
+            /* Place content 60px from the top */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in the sidepanel */
+            background-color: #6e4c2c;
         }
 
-            /* The sidepanel links */
+        /* The sidepanel links */
         .sidepanel a {
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
-            color: #818181;
+            color: #fff;
             display: block;
             transition: 0.3s;
         }
 
-            /* When you mouse over the navigation links, change their color */
-        .sidepanel a:hover {
-            color: #f1f1f1;
-        }
-
-            /* Position and style the close button (top right corner) */
+        /* Position and style the close button (top right corner) */
         .sidepanel .closebtn {
             position: absolute;
             top: 0;
@@ -95,7 +105,7 @@
             margin-left: 50px;
         }
 
-            /* Style the button that is used to open the sidepanel */
+        /* Style the button that is used to open the sidepanel */
         .openbtn {
             font-size: 20px;
             cursor: pointer;
@@ -105,11 +115,7 @@
             border: none;
         }
 
-        .openbtn:hover {
-            background-color: #444;
-        }
-
-        .content{
+        .content {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -117,20 +123,23 @@
             margin: 3%;
             /* padding: 3%; */
             background-color: #ffe7cd;
-         }
-
-        .content h1{
-            padding: 10px;
         }
 
-        table, th, td{
+        .content h1 {
+            padding: 10px;
+            padding-left: 15px;
+        }
+
+        table,
+        th,
+        td {
             border: solid 1px transparent;
             border-collapse: collapse;
             padding: 10px;
             text-align: center;
         }
 
-        table{
+        table {
             margin-top: 10px;
         }
 
@@ -138,24 +147,24 @@
             background-color: #edd7bf;
         }
 
-        .aksi{
+        .aksi {
             display: flex;
             justify-content: center;
             gap: 10px;
         }
 
-        .aksi a{
+        .aksi a {
             text-decoration: none;
             color: black;
         }
 
-        input[type = "button"]{
+        input[type="button"] {
             padding: 10px;
             border-radius: 15px;
             border: solid 1px black;
         }
 
-        .edit{
+        .edit {
             /* margin-top: 10px; */
             padding: 10px;
         }
@@ -167,13 +176,14 @@
             <a href="menu.php">
                 <img src="./Images/logo.png" alt="logo">
             </a>
-            <a href="menu.php">BEANPOS</a>
+            <a href="menu.php">BeanPOS</a>
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="menu.php">Menu</a>
             <a href="akun.php">Akun</a>
-            <a href="hstory.php">History</a>
+            <a href="history.php">History</a>
+            <a href="logout.php">Logout</a>
         </div>
 
         <button class="openbtn" onclick="openNav()">&#9776;</button>
@@ -183,10 +193,10 @@
         <table style="width: 100%;">
             <tr>
                 <th>Nama</th>
-                <th>id</th>
-                <th>harga</th>
-                <th>stok</th>
-                <th>aksi</th>
+                <th>Id</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Aksi</th>
             </tr>
             <?php while($row = mysqli_fetch_array($result)){ ?>
             <tr>
@@ -194,13 +204,13 @@
                 <td><?php echo $row['id_produk']; ?></td>
                 <td><?php echo $row['harga_produk']; ?></td>
                 <td><?php echo $row['stok_produk']; ?></td>
-                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>">edit</a><a href="proses_stok.php?hapus=<?php echo $row['id_produk']?>">hapus</a></td>
+                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>">Edit</a><a href="proses_stok.php?hapus=<?php echo $row['id_produk']?>" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</a></td>
             </tr>            
             <?php }?>
         </table>
         <div class="edit">
             <a href="kelola_stok.php">
-                <input type="button" value="tambah akun">
+                <input type="button" value="Tambah Produk">
             </a>
         </div>
     </div>

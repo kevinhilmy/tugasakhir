@@ -192,6 +192,10 @@ if (isset($_POST['aksi'])) {
             justify-content: center;
         }
 
+        label{
+            padding-right: 5px;
+        }
+
         .aksi button {
             border-radius: 10px;
             border: transparent;
@@ -209,7 +213,7 @@ if (isset($_POST['aksi'])) {
         <div class="logo">
             <a href="menu.php">
                 <img src="./Images/logo.png" alt="logo">
-                <p>BEANPOS</p>
+                <p>BeanPOS</p>
             </a>
         </div>
         <div id="mySidepanel" class="sidepanel">

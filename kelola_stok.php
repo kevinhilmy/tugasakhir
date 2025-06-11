@@ -195,6 +195,10 @@ if (isset($_POST['aksi'])) {
             padding: 5px;
         }
 
+        label{
+            padding-right: 10px;
+        }
+
         .box input {
             padding: 0px 40px 10px 0px;
         }
@@ -206,7 +210,7 @@ if (isset($_POST['aksi'])) {
         <div class="logo">
             <a href="menu.php">
                 <img src="./Images/logo.png" alt="logo">
-                <p>BEANPOS</p>
+                <p>BeanPOS</p>
             </a>
         </div>
         <div id="mySidepanel" class="sidepanel">
@@ -220,24 +224,24 @@ if (isset($_POST['aksi'])) {
     </div>
     <div class="isi">
         <div class="box">
-            <h1>Edit Stock</h1>
+            <h1>Edit Stok</h1>
             <!-- // Form untuk menambahkan atau mengedit data akun -->
             <form action="" method="post">
                 <table>
                     <tr>
-                        <td><label for="nama">nama produk</label></td>
+                        <td><label for="nama">Nama Produk</label></td>
                         <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama_produk']; ?>" required></td>
                     </tr>
                     <tr>
-                        <td><label for="foto">foto</label></td>
+                        <td><label for="foto">Foto</label></td>
                         <td><input type="text" name="foto" id="foto" value="<?php echo $data['foto']; ?>" required></td>
                     </tr>
                     <tr>
-                        <td><label for="harga">harga</label></td>
+                        <td><label for="harga">Harga</label></td>
                         <td><input type="int" name="harga" id="harga" value="<?php echo $data['harga_produk']; ?>" required></td>
                     </tr>
                     <tr>
-                        <td><label for="stok">stok</label></td>
+                        <td><label for="stok">Stok</label></td>
                         <td><input type="int" name="stok" id="stok" value="<?php echo $data['stok_produk']; ?>" required></td>
                     </tr>
                 </table>
@@ -252,7 +256,7 @@ if (isset($_POST['aksi'])) {
             <?php
             } else {
             ?>
-                <button type="submit" name="aksi" value="add">Tambahkan Akun</button>
+                <button type="submit" name="aksi" value="add">Tambahkan Produk</button>
             <?php
             }
             ?>

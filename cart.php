@@ -199,6 +199,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 10px;
         }
 
+        .btn-bayar{
+            padding-top: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+
         footer {
             display: flex;
             justify-content: flex-end;
@@ -244,9 +250,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="sidebar">
         <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
         <a href="menu.php">Menu</a>
-        <a href="">Pesanan</a>
-        <a href="">Stok Barang</a>
-        <a href="">Riwayat</a>
+        <a href="#">Pesanan</a>
+        <a href="stok.php">Stok Barang</a>
+        <a href="history.php">Riwayat</a>
         <a href="logout.php">Logout</a>
     </div>
     <main>
