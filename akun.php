@@ -2,10 +2,10 @@
 session_start();
 include 'koneksi.php';
 
-// if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-//   header("Location: menu.php");
-//   exit;
-// }
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+  header("Location: menu.php");
+  exit;
+}
 
 // ambil seluruh data dari tabel tb_akun 
 function getAllAkun()

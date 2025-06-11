@@ -8,7 +8,7 @@ $data = [];
 // Jika tidak, tampilkan form untuk menambahkan akun baru
 if (isset($_GET['ubah'])) {
     $id = $_GET['ubah'];
-    $query = "SELECT * FROM tb_akun WHERE id = '$id'";
+    $query = "SELECT * FROM tb_produk WHERE id_produk = '$id'";
     $result = mysqli_query($db, $query);
     if ($result && mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
@@ -19,44 +19,41 @@ if (isset($_GET['ubah'])) {
 } else {
     // Jika tidak ada parameter 'ubah', tampilkan form untuk menambahkan akun baru
     $data = [
-        'id' => '',
-        'username' => '',
-        'password' => '',
-        'nama' => '',
-        'email' => '',
-        'role' => ''
+        'id_produk' => '',
+        'nama_produk' => '',
+        'foto' => '',
+        'harga_produk' => '',
+        'stok_produk' => ''
     ];
 }
 // Cek apakah ada aksi yang dilakukan
 if (isset($_POST['aksi'])) {
     if ($_POST['aksi'] == 'add') {
-        $username = $_POST['usn'];
-        $password = $_POST['pw'];
         $nama = $_POST['nama'];
-        $email = $_POST['email'];
-        $role = $_POST['role'];
+        $foto = $_POST['foto'];
+        $harga = $_POST['harga'];
+        $stok = $_POST['stok'];
 
-        $query_insert = "INSERT INTO tb_akun (id, username, password, nama, email, role) VALUES(null, '$username', '$password', '$nama', '$email', '$role')";
+        $query_insert = "INSERT INTO tb_produk (id_produk, nama_produk, foto, harga_produk, stok_produk) VALUES(null, '$nama', '$foto', '$harga', '$stok')";
         $sql = mysqli_query($db, $query_insert);
 
         if ($sql) {
-            header("location:akun.php");
+            header("location:stok.php");
         } else {
             echo "Gagal menambahkan data.";
         }
     } elseif ($_POST["aksi"] == 'edit') {
         $id = $_POST['id'];
-        $username = $_POST['usn'];
-        $password = $_POST['pw'];
         $nama = $_POST['nama'];
-        $email = $_POST['email'];
-        $role = $_POST['role'];
+        $foto = $_POST['foto'];
+        $harga = $_POST['harga'];
+        $stok = $_POST['stok'];
 
-        $query = "UPDATE tb_akun SET username = '$username', password = '$password', nama = '$nama', email = '$email', role = '$role' WHERE id='$id'";
+        $query = "UPDATE tb_produk SET nama_produk = '$nama', foto = '$foto', harga_produk = '$harga', stok_produk = '$stok' WHERE id_produk='$id'";
         $result = mysqli_query($db, $query);
 
         if ($result) {
-            header("location:akun.php");
+            header("location:stok.php");
         } else {
             echo "Gagal mengubah data.";
         }
@@ -228,31 +225,23 @@ if (isset($_POST['aksi'])) {
             <form action="" method="post">
                 <table>
                     <tr>
-                        <td><label for="usn">Username</label></td>
-                        <td><input type="text" name="usn" id="usn" value="<?php echo $data['username']; ?>" required></td>
+                        <td><label for="nama">nama produk</label></td>
+                        <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama_produk']; ?>" required></td>
                     </tr>
                     <tr>
-                        <td><label for="pw">Password</label></td>
-                        <td><input type="password" name="pw" id="pw" value="<?php echo $data['password']; ?>" required></td>
+                        <td><label for="foto">foto</label></td>
+                        <td><input type="text" name="foto" id="foto" value="<?php echo $data['foto']; ?>" required></td>
                     </tr>
                     <tr>
-                        <td><label for="nama">Nama</label></td>
-                        <td><input type="text" name="nama" id="nama" value="<?php echo $data['nama']; ?>" required></td>
+                        <td><label for="harga">harga</label></td>
+                        <td><input type="int" name="harga" id="harga" value="<?php echo $data['harga_produk']; ?>" required></td>
                     </tr>
                     <tr>
-                        <td><label for="email">Email</label></td>
-                        <td><input type="email" name="email" id="email" value="<?php echo $data['email']; ?>" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="role">Role</label></td>
-                        <td><select name="role" id="role">
-                                <option value="" disabled selected>Pilih Role</option>
-                                <option value="admin" <?php if ($data['role'] == 'admin') echo 'selected'; ?>>Admin</option>
-                                <option value="kasir" <?php if ($data['role'] == 'kasir') echo 'selected'; ?>>Kasir</option>
-                            </select></td>
+                        <td><label for="stok">stok</label></td>
+                        <td><input type="int" name="stok" id="stok" value="<?php echo $data['stok_produk']; ?>" required></td>
                     </tr>
                 </table>
-                <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+                <input type="hidden" name="id" value="<?php echo $data['id_produk']; ?>">
                 <input type="hidden" name="aksi" value="<?php echo isset($_GET['ubah']) ? 'edit' : 'add'; ?>">
         </div>
         <div class="aksi">
@@ -267,7 +256,7 @@ if (isset($_POST['aksi'])) {
             <?php
             }
             ?>
-            <a href="akun.php">
+            <a href="stok.php">
                 <?php
                 if (isset($_GET['ubah'])) {
                     echo "<button type='button'>Batal</button>";

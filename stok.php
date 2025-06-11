@@ -194,10 +194,15 @@
                 <td><?php echo $row['id_produk']; ?></td>
                 <td><?php echo $row['harga_produk']; ?></td>
                 <td><?php echo $row['stok_produk']; ?></td>
-                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>">edit</a><a href="kelola_stok.php?hapus=<?php echo $row['id_produk']?>">hapus</a></td>
+                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>">edit</a><a href="proses_stok.php?hapus=<?php echo $row['id_produk']?>">hapus</a></td>
             </tr>            
             <?php }?>
         </table>
+        <div class="edit">
+            <a href="kelola_stok.php">
+                <input type="button" value="tambah akun">
+            </a>
+        </div>
     </div>
 </body>
 </html>
