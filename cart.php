@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['keranjang'] = array_values($_SESSION['keranjang']);
         }
     } else {
+        $id_produk = (int)($_POST['id_produk'] ?? 0);
         $nama = $_POST['nama_produk'] ?? '';
         $harga = (int)($_POST['harga_produk'] ?? 0);
 
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (!$found) {
                 $_SESSION['keranjang'][] = [
+                    'id_produk' => $id_produk,
                     'nama_produk' => $nama,
                     'harga_produk' => $harga,
                     'jumlah' => 1
