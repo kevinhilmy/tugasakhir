@@ -200,6 +200,7 @@ function getAllAkun()
             <a href="menu.php">Menu</a>
             <a href="stok.php">Stok</a>
             <a href="history.php">History</a>
+            <a href="logout.php">Logout</a>
         </div>
 
         <button class="openbtn" onclick="openNav()">&#9776;</button>
