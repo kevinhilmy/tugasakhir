@@ -152,6 +152,11 @@ if (isset($_POST['aksi'])) {
             transition: 0.3s;
         }
 
+        .sidepanel h1{
+            color: #fff;
+            padding-left: 15px;
+        }
+
         /* When you mouse over the navigation links, change their color */
         .sidepanel a:hover {
             color: #f1f1f1;
@@ -218,6 +223,7 @@ if (isset($_POST['aksi'])) {
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h1><?php echo $_SESSION['username']; ?></h1>
             <a href="menu.php">Menu</a>
             <a href="history.php">History</a>
             <a href="cart.php">Cart</a>

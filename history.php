@@ -87,6 +87,11 @@
       background-color: #8b6845;
     }
 
+    .sidebar h1{
+      color: #fff;
+      padding-left: 15px;
+    }
+
     .close-btn {
       position: absolute;
       top: 10px;
@@ -141,6 +146,7 @@
 
     <nav class="sidebar">
     <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
+    <h1><?php echo $_SESSION['username']; ?></h1>
     <a href="menu.php">Menu</a>
     <a href="cart.php">Pesanan</a>
     <a href="stok.php">Stok Barang</a>

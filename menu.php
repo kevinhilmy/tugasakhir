@@ -136,6 +136,11 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
       font-weight: bold;
     }
 
+    .sidebar h1{
+      color: #fff;
+      padding-left: 15px;
+    }
+
     .menu-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -268,6 +273,7 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
 
   <nav class="sidebar">
     <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
+    <h1><?php echo $_SESSION['username']; ?></h1>
     <a href="menu.php">Menu</a>
     <a href="cart.php">Pesanan</a>
     <a href="stok.php">Stok Barang</a>

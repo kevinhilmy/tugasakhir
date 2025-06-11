@@ -115,6 +115,11 @@
             border: none;
         }
 
+        .sidepanel h1{
+            color: #fff;
+            padding-left: 15px;
+        }
+
         .content {
             display: flex;
             flex-direction: column;
@@ -180,6 +185,7 @@
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h1><?php echo $_SESSION['username']; ?></h1>
             <a href="menu.php">Menu</a>
             <a href="akun.php">Akun</a>
             <a href="history.php">History</a>
