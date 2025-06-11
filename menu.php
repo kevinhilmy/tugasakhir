@@ -2,6 +2,12 @@
   session_start();
   include 'koneksi.php';
 
+  $sql = "SELECT * FROM tb_akun";
+  $result = $db->query($sql);
+  
+  $user = mysqli_fetch_assoc();
+  $_SESSION['role'] = $user['role'];
+
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id_produk'])) {
   $id_produk = (int)$_POST['id_produk'];
 
@@ -243,6 +249,9 @@
   <a href="menu.php">Menu</a>
   <a href="cart.php">Pesanan</a>
   <a href="stok.php">Stok Barang</a>
+  <?php if ($_SESSION === 'admin'): ?>
+  <a href="akun.php">Akun</a>
+  <?php endif; ?>
   <a href="history.php">Riwayat</a>
   <a href="logout.php">Logout</a>
 </nav>
