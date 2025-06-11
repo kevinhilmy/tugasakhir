@@ -22,39 +22,40 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>History</title>
    <style>
-      header {
-      background-color: #bb874f;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-        }
-
+       
       body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom, #5d4d44, #a7825b);
       margin: 0;
       min-height: 100vh;
-        }
+    }
 
-      .logo {
+    header {
+      background-color: #a05c26;
+      padding: 10px 20px;
       display: flex;
-      flex-direction: row;
-      justify-content: center;
       align-items: center;
-        }
+      justify-content: space-between;
+    }
 
-      .logo img {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .logo img {
       height: 50px;
-        }
+      width: 100%;
+    }
 
-      .logo h3 {
-      text-decoration: none;
-      color: #111;
+    .logo h3 {
+      color: #fff;
       font-family: Georgia, serif;
-        }
+      font-size: 20px;
+    }
 
-      .sidebar {
+        .sidebar {
       width: 250px;
       background-color: #6e4c2c;
       position: fixed;
@@ -71,7 +72,7 @@
       display: none;
     }
 
-    #sidebar-toggle:checked ~ .sidebar {
+    #sidebar-toggle:checked~.sidebar {
       right: 0;
     }
 
@@ -96,34 +97,34 @@
       font-weight: bold;
     }
 
-      h1 {
-          margin-left: auto;
-          margin-right: auto;
-          padding-left: 70px;
-          color: #fff;
-          margin-bottom: 0;
-          font-size: 40px;
-        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* align-items: center; */
+            margin: 3%;
+            /* padding: 3%; */
+            background-color: #ffe7cd;
+         }
 
+        .content h1{
+            padding-bottom: 10px;
+        }
+      
       table {
-            border-collapse: collapse;
-            margin-left: auto;
-            margin-right: auto;
-            background-color:rgb(253, 250, 190);
-            border-color: #795C32;
+           margin-top: 10px;
+            
         }
 
       table, th, td {
-            border: 1px solid black;
-        }
-
-      th, td {
-            padding: 17px;
-            font-size: 18px;
+           border: solid 1px transparent;
+            border-collapse: collapse;
+            padding: 13px;
+            text-align: center;
         }
       
       tr:nth-child(even) {
-            background-color:rgba(250, 215, 178, 0.59);
+            background-color:#edd7bf;
         }
    </style>
 </head>
@@ -131,25 +132,28 @@
    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
 
   <header>
-
-  <div class="logo">
-    <img src="./Images/logo.png" alt="BeanPOS Logo">
-    <h3>BeanPOS</h3>
-  </div>
-
-  <label for="sidebar-toggle" class="menu-icon">&#9776;</label>
+    <div class="logo">
+      <img src="./Images/logo.png" alt="BeanPOS Logo">
+      <h3>BeanPOS</h3>
+    </div>
+    <label for="sidebar-toggle" class="menu-icon">&#9776;</label>
   </header>
 
-  <nav class="sidebar">
+    <nav class="sidebar">
     <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
-  <a href="menu.php">Menu</a>
-  <a href="cart.php">Pesanan</a>
-  <a href="stok.php">Stok Barang</a>
-  <a href="history.php">Riwayat</a>
-  <a href="logout.php">Logout</a>
+    <a href="menu.php">Menu</a>
+    <a href="cart.php">Pesanan</a>
+    <a href="stok.php">Stok Barang</a>
+    <?php if ($_SESSION['role'] == 'admin') : ?>
+      <a href="akun.php">Akun</a>
+    <?php endif; ?>
+    <a href="history.php">Riwayat</a>
+    <a href="logout.php">Logout</a>
   </nav>
 
-    <table style="width: 1250px" border="1">
+      </div>
+    <div class="content">
+    <table style="width: 100%;">
          <h1>Riwayat pesanan</h1><br>
        <tr>
          <th>ID Akun</th>   
@@ -160,7 +164,8 @@
          <th>Bayar</th>   
          <th>Kembali</th>   
        </tr>
-
+      </div>
+     
        <?php
     $riwayat = getAllAkun();
     foreach ($riwayat as $row) {
@@ -177,5 +182,6 @@
   ?>
   
     </table>
+
 </body>
 </html>
