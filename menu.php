@@ -256,7 +256,7 @@
     <form action="" method="post">
   <div class="menu-items">
     <h4><?php echo $row['nama_produk']; ?></h4>
-    <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
+    <img src="<?php echo $row['foto']; ?>" alt="foto" class="product">
     <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
     <div class="add-cart">
       <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
