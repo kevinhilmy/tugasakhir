@@ -41,15 +41,52 @@ unset($_SESSION['kembalian'], $_SESSION['total'], $_SESSION['bayar']);
 <head>
     <meta charset="UTF-8">
     <title>Hasil Transaksi</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        body{
+            background-image: url(./Images/BackgroundBean.jpeg);
+        }
+
+        .isi{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: red;
+            margin: 10% 20%;
+            border-radius: 10px;
+            gap: 5px;
+        }
+
+        .isi h2{
+            font-size: 30px;
+        }
+
+        .isi p{
+            font-size:24px
+        }
+
+        .isi a{
+            font-size: 20px;
+            text-decoration: none;
+            
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Transaksi Berhasil!</h2>
-    <p>Total: Rp. <?= number_format($total, 0, ',', '.') ?></p>
-    <p>Dibayar: Rp. <?= number_format($bayar, 0, ',', '.') ?></p>
-    <p>Kembalian: Rp. <?= number_format($kembalian, 0, ',', '.') ?></p>
+    <div class="isi">
+        <h2>Transaksi Berhasil!</h2>
+        <p>Total: Rp. <?= number_format($total, 0, ',', '.') ?></p>
+        <p>Dibayar: Rp. <?= number_format($bayar, 0, ',', '.') ?></p>
+        <p>Kembalian: Rp. <?= number_format($kembalian, 0, ',', '.') ?></p>
+        <a href="menu.php">Kembali ke Menu</a>
+    </div>
 
-    <a href="menu.php">Kembali ke Menu</a>
 </body>
 
 </html>

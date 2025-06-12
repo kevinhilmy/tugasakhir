@@ -240,7 +240,7 @@ if (isset($_POST['aksi'])) {
                     </tr>
                     <tr>
                         <td><label for="foto">Foto</label></td>
-                        <td><input type="text" name="foto" id="foto" value="<?php echo $data['foto']; ?>" required></td>
+                        <td><input type="file" name="foto" id="foto" value="<?php echo $data['gambar']; ?>" required></td>
                     </tr>
                     <tr>
                         <td><label for="harga">Harga</label></td>
