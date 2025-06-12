@@ -60,6 +60,8 @@ unset($_SESSION['kembalian'], $_SESSION['total'], $_SESSION['bayar']);
             margin: 10% 20%;
             border-radius: 10px;
             gap: 5px;
+            color: white;
+            background-color:rgba(0, 0, 0, 0.5);
         }
 
         .isi h2{
@@ -73,6 +75,7 @@ unset($_SESSION['kembalian'], $_SESSION['total'], $_SESSION['bayar']);
         .isi a{
             font-size: 20px;
             text-decoration: none;
+            color: grey;
             
         }
     </style>
