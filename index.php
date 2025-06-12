@@ -11,7 +11,6 @@ include 'koneksi.php';
     <style>
         body {
             margin: 10%;
-            height: 100vh;
             font-family: 'Georgia', serif;
             background-image:url(./Images/BackgroundBean.jpeg) ;
             background-size: cover;

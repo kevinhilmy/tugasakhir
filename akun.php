@@ -1,6 +1,12 @@
 <?php
 session_start();
 include 'koneksi.php';
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+  header("Location: menu.php");
+  exit;
+}
+
 // ambil seluruh data dari tabel tb_akun 
 function getAllAkun()
 {
@@ -42,34 +48,40 @@ function getAllAkun()
         }
 
         body {
-            background-color: #736153;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #5d4d44, #a7825b);
+            margin: 0;
+            min-height: 100vh;
         }
 
         .nav {
+            background-color: #a05c26;
+            padding: 10px 20px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            padding: 15px;
-            background-color: #bb874f;
         }
 
-        .logo {
+        .logo a {
             display: flex;
-            flex-direction: row;
             justify-content: center;
             align-items: center;
         }
 
         .logo a {
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 20px;
             text-decoration: none;
-            color: #111;
         }
 
         a img {
-            width: 50px;
+            height: 50px;
+            width: 100%;
         }
 
         .sidepanel {
-            height: 250px;
+            height: 100%;
             /* Specify a height */
             width: 0;
             /* 0 width - change this with JavaScript */
@@ -87,6 +99,7 @@ function getAllAkun()
             /* Place content 60px from the top */
             transition: 0.5s;
             /* 0.5 second transition effect to slide in the sidepanel */
+            background-color: #6e4c2c;
         }
 
         /* The sidepanel links */
@@ -94,14 +107,14 @@ function getAllAkun()
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
-            color: #818181;
+            color: #fff;
             display: block;
             transition: 0.3s;
         }
 
-        /* When you mouse over the navigation links, change their color */
-        .sidepanel a:hover {
-            color: #f1f1f1;
+        .sidepanel h1{
+            color: #fff;
+            padding-left: 15px;
         }
 
         /* Position and style the close button (top right corner) */
@@ -123,10 +136,6 @@ function getAllAkun()
             border: none;
         }
 
-        .openbtn:hover {
-            background-color: #444;
-        }
-
         .content {
             display: flex;
             flex-direction: column;
@@ -139,6 +148,7 @@ function getAllAkun()
 
         .content h1 {
             padding: 10px;
+            padding-left: 15px;
         }
 
         table,
@@ -187,14 +197,16 @@ function getAllAkun()
         <div class="logo">
             <a href="">
                 <img src="./Images/logo.png" alt="logo">
-                <p>BEANPOS</p>
+                <p>BeanPOS</p>
             </a>
         </div>
         <div id="mySidepanel" class="sidepanel">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <h1><?php echo $_SESSION['username']; ?></h1>
             <a href="menu.php">Menu</a>
             <a href="stok.php">Stok</a>
             <a href="history.php">History</a>
+            <a href="logout.php">Logout</a>
         </div>
 
         <button class="openbtn" onclick="openNav()">&#9776;</button>
@@ -225,7 +237,7 @@ function getAllAkun()
                                 <td>" . htmlspecialchars($a['password']) . "</td>
                                 <td>" . htmlspecialchars($a['email']) . "</td>
                                 <td>" . htmlspecialchars($a['role']) . "</td>
-                                <td class='aksi'><a href='kelola.php?ubah=" . $a['id'] . "'>edit</a><a href='proses.php?hapus=" . $a['id'] . "'>hapus</a></td>
+                                <td class='aksi'><a href='kelola.php?ubah=" . $a['id'] . "'>edit</a><a href='proses.php?hapus=" . $a['id'] . "' onclick=\"return confirm('Yakin ingin menghapus akun?');\">hapus</a></td>
                         </tr>";
                 }
             } else {

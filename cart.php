@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['keranjang'] = array_values($_SESSION['keranjang']);
         }
     } else {
+        $id_produk = (int)($_POST['id_produk'] ?? 0);
         $nama = $_POST['nama_produk'] ?? '';
         $harga = (int)($_POST['harga_produk'] ?? 0);
 
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (!$found) {
                 $_SESSION['keranjang'][] = [
+                    'id_produk' => $id_produk,
                     'nama_produk' => $nama,
                     'harga_produk' => $harga,
                     'jumlah' => 1
@@ -129,6 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #8b6845;
         }
 
+        .sidebar h1{
+            color: #fff;
+            padding-left: 15px;
+        }
+
         .close-btn {
             position: absolute;
             top: 10px;
@@ -197,6 +204,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 10px;
         }
 
+        .btn-bayar{
+            padding-top: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+
         footer {
             display: flex;
             justify-content: flex-end;
@@ -241,10 +254,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </nav>
     <div class="sidebar">
         <label for="sidebar-toggle" class="close-btn" style="position:absolute; top:10px; right:15px; font-size:24px; color:white; cursor:pointer;">&times;</label>
+        <h1><?php echo $_SESSION['username']; ?></h1>
         <a href="menu.php">Menu</a>
-        <a href="">Pesanan</a>
-        <a href="">Stok Barang</a>
-        <a href="">Riwayat</a>
+        <a href="#">Pesanan</a>
+        <a href="stok.php">Stok Barang</a>
+        <a href="history.php">Riwayat</a>
         <a href="logout.php">Logout</a>
     </div>
     <main>
