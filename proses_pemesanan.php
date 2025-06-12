@@ -1,6 +1,8 @@
 <?php
 session_start();
 include 'koneksi.php';
+//tampilkan seluruh isi dari $_SESSION;
+// print_r($_SESSION);
 
 if (!isset($_SESSION['keranjang']) || empty($_SESSION['keranjang'])) {
     header("Location: cart.php");
@@ -16,7 +18,8 @@ if ($kembali < 0) {
     exit;
 }
 
-$id_akun = $_SESSION['id']; // Ganti dengan session id jika login sudah dinamis
+// pada bagian ini error session id ga ada
+$id_akun = $_SESSION['id'];
 $tanggal = date('Y-m-d');
 $total_produk = count($_SESSION['keranjang']);
 
@@ -30,7 +33,7 @@ $id_pesanan = mysqli_insert_id($db);
 
 // Simpan detail pesanan ke detail_pesanan
 foreach ($_SESSION['keranjang'] as $item) {
-    $id_produk = $item['id_produk']; // Pastikan ada id_produk di data session
+    $id_produk = $item['id'];
     $jumlah = $item['jumlah'];
     $subtotal = $item['harga'] * $jumlah;
 
@@ -44,4 +47,3 @@ unset($_SESSION['keranjang']);
 
 echo "<script>alert('Pembayaran berhasil. Kembalian: Rp. " . number_format($kembali, 0, ',', '.') . "');
 window.location.href='hasil_transaksi.php';</script>";
-?>

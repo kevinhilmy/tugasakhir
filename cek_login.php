@@ -17,6 +17,7 @@ if ($result->num_rows > 0) {
     $_SESSION['username'] = $user['username'];
     $_SESSION['status'] = "login";
     $_SESSION['role'] = $user['role']; // Ambil role dari DB
+    $_SESSION['id'] = $user['id']; // Ambil id akun dari DB
 
     // echo $_SESSION['role'];
     header("location:menu.php");
@@ -27,4 +28,3 @@ if ($result->num_rows > 0) {
             window.location.href='index.php';
           </script>";
 }
-?>
