@@ -16,7 +16,7 @@ if ($kembali < 0) {
     exit;
 }
 
-$id_akun = 1; // Ganti dengan session id jika login sudah dinamis
+$id_akun = $_SESSION['id']; // Ganti dengan session id jika login sudah dinamis
 $tanggal = date('Y-m-d');
 $total_produk = count($_SESSION['keranjang']);
 
@@ -43,5 +43,5 @@ foreach ($_SESSION['keranjang'] as $item) {
 unset($_SESSION['keranjang']);
 
 echo "<script>alert('Pembayaran berhasil. Kembalian: Rp. " . number_format($kembali, 0, ',', '.') . "');
-window.location.href='history.php';</script>";
+window.location.href='hasil_transaksi.php';</script>";
 ?>

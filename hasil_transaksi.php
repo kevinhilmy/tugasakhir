@@ -1,9 +1,22 @@
 <?php
 session_start();
+include 'koneksi.php';
 
 $kembalian = $_SESSION['kembalian'] ?? 0;
 $total = $_SESSION['total'] ?? 0;
 $bayar = $_SESSION['bayar'] ?? 0;
+
+$sql = "SELECT * FROM tb_pemesanan WHERE id_pesanan = '" . $_SESSION['keranjang'] . "'";
+$result = $db->query($sql);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $total = $row['total_harga'];
+    $bayar = $row['bayar'];
+    $kembalian = $row['kembali'];
+} else {
+    echo "<script>alert('Data transaksi tidak ditemukan!');</script>";
+    exit;
+}
 
 // Bersihkan session setelah ditampilkan
 unset($_SESSION['kembalian'], $_SESSION['total'], $_SESSION['bayar']);

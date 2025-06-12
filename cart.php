@@ -210,6 +210,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: #fff;
         }
 
+        .btn-hps{
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         footer {
             display: flex;
             justify-content: flex-end;
@@ -285,7 +294,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <td>
                                     <form method="post" style="margin:0;">
                                         <input type="hidden" name="hapus_index" value="<?= $index ?>">
-                                        <button type="submit" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</button>
+                                        <button class="btn-hps" type="submit" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</button>
                                     </form>
                                 </td>
                             </tr>

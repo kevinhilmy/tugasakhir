@@ -218,7 +218,7 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
 
     .alert {
       position: fixed;
-      top: 60px;
+      bottom: 60px;
       right: 20px;
       background-color: #f0c674;
       color: #3b2900;
@@ -237,6 +237,11 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
     .tombol a button{
       display: flex;
       align-items: center;
+      background-color: #a05c26;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 5px 10px;
     }
 
     .tombol a{
@@ -293,7 +298,7 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
         <form action="" method="post">
           <div class="menu-items">
             <h4><?php echo $row['nama_produk']; ?></h4>
-            <img src="./Images/Espresso_bg.png" alt="Espresso" class="product">
+            <img src="./Images/<?php echo $row['gambar']; ?>" alt="<?php echo $row['nama_produk']; ?>" class="product">
             <input type="hidden" name="id_produk" value="<?php echo $row['id_produk']; ?>">
             <div class="add-cart">
               <span>Rp.<?php echo number_format($row['harga_produk'], 0, ',', '.'); ?></span>
