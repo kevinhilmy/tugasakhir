@@ -158,6 +158,7 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
       font-weight: bold;
       font-family: 'Georgia', serif;
       margin-bottom: 10px;
+      margin-top: 10px;
     }
 
     .menu-items {
@@ -230,7 +231,9 @@ $result = mysqli_query($db, "SELECT * FROM tb_produk");
     }
 
     .tombol{
-      padding-left: 10px;
+      display: flex;
+      justify-content: end;
+      padding-right: 20px;
       padding-top: 10px;
     }
 

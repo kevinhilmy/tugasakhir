@@ -160,7 +160,19 @@
 
         .aksi a {
             text-decoration: none;
-            color: black;
+            color: white;  
+        }
+
+        .edit {
+            background-color:rgb(41, 193, 31);
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .hapus {
+            background-color: rgb(255, 0, 0);
+            padding: 10px;
+            border-radius: 15px;
         }
 
         input[type="button"] {
@@ -169,7 +181,7 @@
             border: solid 1px black;
         }
 
-        .edit {
+        .tambah {
             /* margin-top: 10px; */
             padding: 10px;
         }
@@ -210,11 +222,11 @@
                 <td><?php echo $row['id_produk']; ?></td>
                 <td><?php echo $row['harga_produk']; ?></td>
                 <td><?php echo $row['stok_produk']; ?></td>
-                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>">Edit</a><a href="proses_stok.php?hapus=<?php echo $row['id_produk']?>" onclick="return confirm('Yakin ingin hapus produk ini?');">Hapus</a></td>
+                <td class="aksi"><a href="kelola_stok.php?ubah=<?php echo $row['id_produk']?>" class="edit">Edit</a><a href="proses_stok.php?hapus=<?php echo $row['id_produk']?>" onclick="return confirm('Yakin ingin hapus produk ini?');" class="hapus">Hapus</a></td>
             </tr>            
             <?php }?>
         </table>
-        <div class="edit">
+        <div class="tambah">
             <a href="kelola_stok.php">
                 <input type="button" value="Tambah Produk">
             </a>
