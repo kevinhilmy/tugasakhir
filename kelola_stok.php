@@ -21,7 +21,7 @@ if (isset($_GET['ubah'])) {
     $data = [
         'id_produk' => '',
         'nama_produk' => '',
-        'foto' => '',
+        'gambar' => '',
         'harga_produk' => '',
         'stok_produk' => ''
     ];
@@ -34,7 +34,7 @@ if (isset($_POST['aksi'])) {
         $harga = $_POST['harga'];
         $stok = $_POST['stok'];
 
-        $query_insert = "INSERT INTO tb_produk (id_produk, nama_produk, foto, harga_produk, stok_produk) VALUES(null, '$nama', '$foto', '$harga', '$stok')";
+        $query_insert = "INSERT INTO tb_produk (id_produk, nama_produk, gambar, harga_produk, stok_produk) VALUES(null, '$nama', '$foto', '$harga', '$stok')";
         $sql = mysqli_query($db, $query_insert);
 
         if ($sql) {
@@ -49,7 +49,7 @@ if (isset($_POST['aksi'])) {
         $harga = $_POST['harga'];
         $stok = $_POST['stok'];
 
-        $query = "UPDATE tb_produk SET nama_produk = '$nama', foto = '$foto', harga_produk = '$harga', stok_produk = '$stok' WHERE id_produk='$id'";
+        $query = "UPDATE tb_produk SET nama_produk = '$nama', gambar = '$foto', harga_produk = '$harga', stok_produk = '$stok' WHERE id_produk='$id'";
         $result = mysqli_query($db, $query);
 
         if ($result) {
