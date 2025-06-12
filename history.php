@@ -1,17 +1,24 @@
 <?php
+   // Memulai session
    session_start();
+
+   // Menghubungkan ke database
    include 'koneksi.php';
 
+   // Fungsi untuk mengambil semua data dari tabel tb_pemesanan
    function getAllAkun()
-{
-    global $db;
-    $query = "SELECT * FROM tb_pemesanan";
-    $result = mysqli_query($db, $query);
-    $data = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $data[] = $row;
-    }
-    return $data;
+   {
+       global $db;
+       $query = "SELECT * FROM tb_pemesanan";
+       $result = mysqli_query($db, $query);
+       $data = [];
+
+       // Menyimpan semua data dalam array
+       while ($row = mysqli_fetch_assoc($result)) {
+           $data[] = $row;
+       }
+
+       return $data;
    }
 ?>
 
@@ -172,6 +179,7 @@
        </tr>
       </div>
      
+      <!-- Looping untuk menampilkan data riwayat pesanan -->
        <?php
     $riwayat = getAllAkun();
     foreach ($riwayat as $row) {

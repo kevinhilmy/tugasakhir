@@ -1,6 +1,9 @@
 <?php
-    session_start();
-    include 'koneksi.php';
+// Memulai session
+session_start();
+
+// Menghubungkan ke database
+include 'koneksi.php';
 ?>
 
 <!DOCTYPE html>

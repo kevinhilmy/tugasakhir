@@ -1,5 +1,8 @@
 <?php
+// Memulai session
 session_start();
+
+// Menghubungkan ke database
 include 'koneksi.php';
 ?>
 <!DOCTYPE html>
